@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VictoryAI → BayMark Paid Pilot Playbook</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --espresso: #3A3330;
+  --cream: #FAF7F2;
+  --sage: #7B9E87;
+  --sage-dark: #5A7B64;
+  --rose: #C4786A;
+  --rose-dark: #A85E52;
+  --gold: #C8A878;
+  --gold-pale: #F5EDD8;
+  --teal: #6B9CA3;
+  --purple: #8B7BB5;
+  --beige: #F3EDE4;
+  --border: rgba(58,51,48,.08);
+  --muted: #9A8E85;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'DM Sans',sans-serif; background:var(--cream); color:var(--espresso); line-height:1.7; }
+.container { max-width:920px; margin:0 auto; padding:0 24px; }
+
+/* HERO */
+.hero { background:var(--espresso); color:#fff; padding:80px 24px 60px; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; top:-100px; right:-100px; width:400px; height:400px; border-radius:50%; background:radial-gradient(circle, rgba(123,158,135,.15), transparent 70%); }
+.hero::after { content:''; position:absolute; bottom:-80px; left:-80px; width:300px; height:300px; border-radius:50%; background:radial-gradient(circle, rgba(196,120,106,.1), transparent 70%); }
+.hero-inner { max-width:920px; margin:0 auto; position:relative; z-index:1; }
+.hero-tag { display:inline-block; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); border:1px solid rgba(200,168,120,.3); padding:6px 16px; border-radius:2px; margin-bottom:24px; }
+.hero h1 { font-family:'Cormorant Garamond',serif; font-size:48px; font-weight:600; line-height:1.15; margin-bottom:16px; }
+.hero h1 em { color:var(--sage); font-style:italic; }
+.hero p { font-size:16px; font-weight:300; color:rgba(255,255,255,.7); max-width:640px; line-height:1.8; }
+.hero-meta { display:flex; gap:32px; margin-top:32px; flex-wrap:wrap; }
+.hero-meta-item { font-size:11px; letter-spacing:1px; text-transform:uppercase; color:rgba(255,255,255,.45); }
+.hero-meta-item strong { display:block; font-size:22px; font-weight:600; color:var(--gold); letter-spacing:0; text-transform:none; margin-bottom:2px; font-family:'Cormorant Garamond',serif; }
+
+/* NAV TABS */
+.nav-tabs { background:#fff; border-bottom:1px solid var(--border); position:sticky; top:0; z-index:100; }
+.nav-inner { max-width:920px; margin:0 auto; padding:0 24px; display:flex; gap:0; overflow-x:auto; }
+.nav-tab { padding:16px 20px; font-size:12px; font-weight:500; letter-spacing:.5px; color:var(--muted); cursor:pointer; border-bottom:2px solid transparent; transition:all .2s; white-space:nowrap; }
+.nav-tab:hover { color:var(--espresso); }
+.nav-tab.active { color:var(--espresso); border-bottom-color:var(--sage); }
+
+/* SECTIONS */
+.section { padding:56px 24px; border-bottom:1px solid var(--border); }
+.section:last-child { border-bottom:none; }
+.section-num { font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--sage); margin-bottom:8px; display:block; }
+.section h2 { font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:600; margin-bottom:8px; line-height:1.3; }
+.section h2 em { color:var(--rose); font-style:italic; }
+.section-sub { font-size:14px; color:var(--muted); font-weight:300; margin-bottom:32px; }
+
+/* CARDS */
+.card { background:#fff; border:1px solid var(--border); border-radius:4px; padding:28px; margin-bottom:16px; }
+.card-accent { border-left:3px solid var(--sage); }
+.card-rose { border-left:3px solid var(--rose); }
+.card-gold { border-left:3px solid var(--gold); }
+.card-purple { border-left:3px solid var(--purple); }
+.card-teal { border-left:3px solid var(--teal); }
+.card h3 { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:600; margin-bottom:10px; }
+.card p { font-size:14px; font-weight:300; line-height:1.8; }
+.card .label { display:inline-block; font-size:9px; letter-spacing:2px; text-transform:uppercase; padding:3px 10px; border-radius:2px; margin-bottom:12px; }
+.label-sage { background:rgba(123,158,135,.1); color:var(--sage-dark); }
+.label-rose { background:rgba(196,120,106,.1); color:var(--rose-dark); }
+.label-gold { background:rgba(200,168,120,.15); color:#8B7340; }
+.label-purple { background:rgba(139,123,181,.1); color:var(--purple); }
+.label-teal { background:rgba(107,156,163,.1); color:var(--teal); }
+
+/* HIGHLIGHT BOX */
+.highlight { background:var(--espresso); color:#fff; border-radius:4px; padding:32px; margin:24px 0; }
+.highlight h3 { font-family:'Cormorant Garamond',serif; font-size:24px; color:var(--gold); margin-bottom:12px; }
+.highlight p { font-size:14px; font-weight:300; line-height:1.8; color:rgba(255,255,255,.8); }
+.highlight .stat { font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:600; color:var(--sage); }
+
+/* TIMELINE */
+.timeline { position:relative; padding-left:32px; margin-top:24px; }
+.timeline::before { content:''; position:absolute; left:8px; top:0; bottom:0; width:1px; background:var(--border); }
+.tl-item { position:relative; margin-bottom:28px; }
+.tl-item::before { content:''; position:absolute; left:-28px; top:6px; width:12px; height:12px; border-radius:50%; border:2px solid var(--sage); background:var(--cream); }
+.tl-item.active::before { background:var(--sage); }
+.tl-label { font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--sage-dark); margin-bottom:4px; }
+.tl-title { font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:600; margin-bottom:6px; }
+.tl-body { font-size:13px; font-weight:300; line-height:1.7; color:var(--muted); }
+
+/* SCRIPT BOX */
+.script { background:#fff; border:1px solid var(--border); border-radius:4px; overflow:hidden; margin:20px 0; }
+.script-header { background:var(--beige); padding:14px 20px; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--sage-dark); border-bottom:1px solid var(--border); }
+.script-body { padding:20px; font-size:14px; line-height:1.9; font-weight:300; }
+.script-body strong { font-weight:600; color:var(--espresso); }
+.script-body em { color:var(--rose-dark); font-style:italic; }
+
+/* TABLE */
+.comp-table { width:100%; border-collapse:collapse; margin:20px 0; font-size:13px; }
+.comp-table th { background:var(--espresso); color:#fff; padding:12px 16px; text-align:left; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; font-weight:500; }
+.comp-table td { padding:12px 16px; border-bottom:1px solid var(--border); font-weight:300; }
+.comp-table tr:nth-child(even) td { background:rgba(243,237,228,.4); }
+.comp-table .val { font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:600; color:var(--sage-dark); }
+
+/* WARNING */
+.warning { background:rgba(196,120,106,.06); border:1px solid rgba(196,120,106,.15); border-radius:4px; padding:20px 24px; margin:20px 0; }
+.warning-title { font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--rose-dark); margin-bottom:8px; }
+.warning p { font-size:13px; font-weight:300; line-height:1.7; }
+
+/* GRID */
+.grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.grid-3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; }
+@media(max-width:700px) { .grid-2, .grid-3 { grid-template-columns:1fr; } }
+
+/* FOOTER */
+.footer { background:var(--espresso); color:rgba(255,255,255,.5); padding:40px 24px; text-align:center; font-size:11px; letter-spacing:1px; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Confidential — Pitch Strategy Playbook</div>
+    <h1>VictoryAI × BayMark<br>Paid Pilot <em>Playbook</em></h1>
+    <p>The exact strategy, pricing, negotiation scripts, and deal structure to get the largest OUD treatment provider in America to fund your $350K+ build through a paid pilot — and turn their VP of Operations into your internal champion.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><strong>$500K</strong>Recommended Ask</div>
+      <div class="hero-meta-item"><strong>90 Days</strong>Pilot Duration</div>
+      <div class="hero-meta-item"><strong>3–5 Sites</strong>California Clinics</div>
+      <div class="hero-meta-item"><strong>200+ Pts</strong>Pilot Cohort</div>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="nav-tabs">
+  <div class="nav-inner">
+    <div class="nav-tab active" onclick="scrollTo_('s1')">Why $500K</div>
+    <div class="nav-tab" onclick="scrollTo_('s2')">BayMark Intel</div>
+    <div class="nav-tab" onclick="scrollTo_('s3')">Champion Strategy</div>
+    <div class="nav-tab" onclick="scrollTo_('s4')">Pitch Script</div>
+    <div class="nav-tab" onclick="scrollTo_('s5')">Deal Structure</div>
+    <div class="nav-tab" onclick="scrollTo_('s6')">Objection Handling</div>
+    <div class="nav-tab" onclick="scrollTo_('s7')">Timeline</div>
+    <div class="nav-tab" onclick="scrollTo_('s8')">Precedents</div>
+  </div>
+</div>
+
+<!-- SECTION 1: WHY $500K -->
+<div class="section" id="s1">
+  <div class="container">
+    <span class="section-num">01 — Pricing Strategy</span>
+    <h2>Ask for $500K. <em>Here's why.</em></h2>
+    <p class="section-sub">Your build costs $350K. Never ask for your costs — ask for the value you deliver, with room to negotiate down to your floor.</p>
+
+    <div class="highlight">
+      <h3>The Math That Makes $500K a No-Brainer</h3>
+      <p>BayMark operates 300+ clinics nationally. Your data shows VictoryAI captures $490–$737 in EMR-billable data per OUD patient per month. For a 200-patient California pilot across 3–5 BAART sites:</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:20px;text-align:center;">
+        <div><div class="stat">$107K</div><div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:4px;">Monthly Billable Data (200 pts × $539 avg)</div></div>
+        <div><div class="stat">$1.28M</div><div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:4px;">Annualized Revenue Opportunity</div></div>
+        <div><div class="stat">2.6×</div><div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:4px;">ROI on a $500K Investment</div></div>
+      </div>
+    </div>
+
+    <div class="card card-accent">
+      <div class="label label-sage">Pricing Framework</div>
+      <h3>The "Anchor High, Negotiate to Your Floor" Model</h3>
+      <p><strong>Your Opening Ask: $500K</strong> — This is your "published rate" for the full pilot engagement including development, deployment, compliance, Kipu integration, training, and 90 days of managed support. It includes $150K in professional services value you won't get elsewhere.</p>
+      <p style="margin-top:12px;"><strong>Your Walk-Away Floor: $350K</strong> — This covers your actual build + compliance costs. You never go below this. If they push below $350K, you counter with scope reduction, not price reduction.</p>
+      <p style="margin-top:12px;"><strong>Your Expected Landing Zone: $400–$450K</strong> — This is where most successful health tech pilot negotiations settle. You give something, they feel like they won, and you're fully funded with margin.</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card card-gold">
+        <div class="label label-gold">What Successful Startups Do</div>
+        <h3>The "Monkey's Paw" Structure</h3>
+        <p>Charge for the pilot engagement upfront. Then offer: "If you convert to a full enterprise license within 6 months of pilot completion, we credit the $500K pilot fee against your first-year license." Now $500K isn't a cost — it's a deposit on a bigger deal. BayMark's CFO sees zero net cost if the pilot works.</p>
+      </div>
+      <div class="card card-rose">
+        <div class="label label-rose">Critical Principle</div>
+        <h3>Never Offer Free</h3>
+        <p>Per Rock Health's data and Dreamit's healthcare accelerator research: startups that don't charge for pilots get deprioritized by the hospital system. <strong>When BayMark pays, they assign resources, clear blockers, and have skin in the game.</strong> Free pilots die in committee. Paid pilots get executive sponsors.</p>
+      </div>
+    </div>
+
+    <table class="comp-table">
+      <thead><tr><th>Ask Range</th><th>What They Hear</th><th>Risk Level</th><th>Recommendation</th></tr></thead>
+      <tbody>
+        <tr><td>$200–$300K</td><td>"Cheap vendor, low confidence"</td><td>Underfunded build, no leverage</td><td>❌ Never</td></tr>
+        <tr><td>$350–$400K</td><td>"Fair deal for an early-stage startup"</td><td>Covers costs but no margin</td><td>⚠️ Floor only</td></tr>
+        <tr><td class="val">$450–$500K</td><td>"Serious technology partner"</td><td>Strong position, room to negotiate</td><td>✅ Recommended</td></tr>
+        <tr><td>$600K+</td><td>"Overpriced for unproven tech"</td><td>Sticker shock, kills momentum</td><td>❌ Too high for pre-MVP</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- SECTION 2: BAYMARK INTEL -->
+<div class="section" id="s2">
+  <div class="container">
+    <span class="section-num">02 — Know Your Target</span>
+    <h2>BayMark Health Services — <em>the intelligence brief.</em></h2>
+    <p class="section-sub">You can't pitch what you don't understand. Here's what you need to know about the largest OUD treatment provider in North America.</p>
+
+    <div class="grid-2">
+      <div class="card card-accent">
+        <div class="label label-sage">Organization Profile</div>
+        <h3>Who They Are</h3>
+        <p><strong>BayMark Health Services</strong> is the largest provider of medication-assisted treatment (MAT) for OUD in the US and Canada. They operate 300+ clinics under brands including BAART Programs, MedMark Treatment Centers, AppleGate Recovery, and Health Care Resource Centers. HQ in Lewisville, TX. PE-backed by Webster Equity Partners and BPEA Private Equity. President: Jason Kletter, PhD.</p>
+      </div>
+      <div class="card card-gold">
+        <div class="label label-gold">California Operations</div>
+        <h3>Your Pilot Footprint</h3>
+        <p>BAART Programs is their flagship California brand, founded in 1977. They expanded to 24/7 MAT access in Los Angeles (Boyle Heights) with CA DHCS funding. In-network with Anthem Blue Cross. Multiple OTP sites across Southern California. They're already collecting data for the state on ER utilization reduction — VictoryAI supercharges this.</p>
+      </div>
+    </div>
+
+    <div class="card card-rose">
+      <div class="label label-rose">Their Pain Points — Your Ammunition</div>
+      <h3>What Keeps BayMark's Leadership Up at Night</h3>
+      <p style="margin-bottom:12px;"><strong>1. Patient retention is their #1 business problem.</strong> OUD patients drop out of MAT at catastrophic rates — industry average is 40–60% attrition within 6 months. Every dropped patient is lost recurring revenue. VictoryAI's family gamification shows 4.2× retention improvement.</p>
+      <p style="margin-bottom:12px;"><strong>2. They're leaving millions in billing codes uncaptured.</strong> BayMark's OTP model focuses on daily dosing and counseling. They almost certainly aren't capturing RTM codes (98975–98981), digital CBT (H2019), BHI (99484), or CoCM (99492/93). VictoryAI unlocks $490–$737/patient/month in data their billing team can submit.</p>
+      <p style="margin-bottom:12px;"><strong>3. Their PE investors demand growth metrics.</strong> Webster Equity and BPEA need EBITDA expansion. Technology-driven revenue per patient is exactly the margin story that makes PE sponsors approve spending.</p>
+      <p><strong>4. They need differentiation from competitors.</strong> Companies like CleanSlate, Groups Recover Together, and Bicycle Health are all scaling OUD treatment with tech-forward stories. BayMark risks looking like "legacy MAT" without a digital companion play.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 3: CHAMPION STRATEGY -->
+<div class="section" id="s3">
+  <div class="container">
+    <span class="section-num">03 — Internal Champion Strategy</span>
+    <h2>Turn the VP of Ops into <em>your evangelist.</em></h2>
+    <p class="section-sub">He's not the final decision maker — he's more valuable than that. Here's the playbook to make him your inside champion who sells this up.</p>
+
+    <div class="card card-purple">
+      <div class="label label-purple">Champion Framework</div>
+      <h3>The "Internal Evangelist" Model</h3>
+      <p>Research from Washington University's CTSA and Dreamit Ventures confirms: in large healthcare systems, the champion who fights for your pilot internally is more important than the decision-maker who signs. Penn Medicine's innovation team, Intermountain Healthcare, and IBX all operate this way. Your VP of Ops needs three things from you:</p>
+      <p style="margin-top:12px;"><strong>1. A win he can claim.</strong> Frame VictoryAI as HIS innovation initiative. "You'd be the executive who brought AI-powered OUD outcomes to BayMark's California operations." Give him the narrative arc: he saw the opportunity, he ran the pilot, he delivered the data.</p>
+      <p style="margin-top:12px;"><strong>2. Air cover from risk.</strong> He's putting his reputation on the line. Give him a pilot structure where failure is impossible — bounded scope, clear success metrics, and an opt-out clause. He never has to defend a "failed" investment because the pilot is designed to generate publishable outcomes data regardless.</p>
+      <p style="margin-top:12px;"><strong>3. A deck he can forward.</strong> He'll need to sell this to Jason Kletter (President), the CFO, and likely the PE board. You need to hand him a 1-page executive summary so polished he can forward it with "Worth 15 minutes of your time" and look brilliant.</p>
+    </div>
+
+    <div class="highlight">
+      <h3>The Champion Activation Sequence</h3>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:16px;text-align:center;">
+        <div style="border-right:1px solid rgba(255,255,255,.1);padding-right:16px;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--gold);">1</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.6);margin-top:4px;"><strong style="color:#fff;">Validate</strong><br>Confirm his priorities in the first meeting. Listen 80%, talk 20%.</div>
+        </div>
+        <div style="border-right:1px solid rgba(255,255,255,.1);padding-right:16px;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--gold);">2</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.6);margin-top:4px;"><strong style="color:#fff;">Arm</strong><br>Give him the 1-pager, ROI model, and 3-slide summary to sell internally.</div>
+        </div>
+        <div style="border-right:1px solid rgba(255,255,255,.1);padding-right:16px;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--gold);">3</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.6);margin-top:4px;"><strong style="color:#fff;">Map</strong><br>Ask him: "Who else would need to see this?" Map the decision chain together.</div>
+        </div>
+        <div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--gold);">4</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.6);margin-top:4px;"><strong style="color:#fff;">Co-Present</strong><br>Offer to present alongside him to leadership. He introduces, you demo.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="warning">
+      <div class="warning-title">⚠ Critical — Never Skip This Step</div>
+      <p>Before any pricing conversation, ask the VP of Ops directly: <strong>"What budget category would this fall under, and who has authority over that budget?"</strong> This question, recommended by Rock Health and Dreamit advisors, prevents you from spending months pitching someone who can't actually release funds. In BayMark's PE-backed structure, pilot budgets over $250K likely need approval from Jason Kletter (President) and potentially the PE board's operating committee. Know this going in.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 4: PITCH SCRIPT -->
+<div class="section" id="s4">
+  <div class="container">
+    <span class="section-num">04 — The Pitch</span>
+    <h2>The exact words <em>that close.</em></h2>
+    <p class="section-sub">Adapted from frameworks used by Omada Health, Propeller Health, Hinge Health, and other DTx companies that landed first paid pilots with major systems.</p>
+
+    <div class="script">
+      <div class="script-header">Opening — The "Value Capture" Frame (60 seconds)</div>
+      <div class="script-body">
+        <strong>"[VP Name], I'll be direct — we've built something specifically for organizations like BayMark, and I want to show you why your California BAART clinics could generate an additional $1.2 million annually in EMR-billable data you're currently not capturing."</strong>
+        <br><br>
+        <em>Pause. Let that number land.</em>
+        <br><br>
+        "Right now, your OTP model captures methadone dosing, counseling sessions, and standard billing. But there are 12+ CPT and HCPCS codes — Remote Therapeutic Monitoring, digital CBT, Behavioral Health Integration, Collaborative Care Management — that require structured patient engagement data your clinicians simply don't have time to generate manually."
+        <br><br>
+        "VictoryAI generates that data automatically. Every MAT dose confirmation, every craving log, every COWS score, every CBT session — all of it structured, timestamped, and exported to Kipu in a format your billing team can use the same day."
+      </div>
+    </div>
+
+    <div class="script">
+      <div class="script-header">The Pivot — "This Isn't Software, It's Revenue Infrastructure" (90 seconds)</div>
+      <div class="script-body">
+        "But here's what makes this different from every digital health pitch you've heard — <strong>we're not asking BayMark to buy software. We're offering to build the data capture layer that funds itself.</strong>"
+        <br><br>
+        "At $490 to $737 in identifiable billing data per patient per month, a 200-patient pilot across 3 to 5 BAART California sites would surface roughly $107K per month in previously uncaptured billable data. Over a 12-month enterprise rollout, that's $1.28M just from California."
+        <br><br>
+        "And we haven't even talked about the retention impact. Your patients drop out. Every MAT patient who leaves is lost recurring revenue. Our family-powered gamification system — where a patient's mother pledges a family dinner at 30 days, their father pledges a fishing trip at 90 — drives a 4.2× improvement in treatment retention. That alone changes the unit economics of every BAART clinic."
+        <br><br>
+        <em>[Show the ROI calculator from your landing page — let him input BayMark's actual patient counts]</em>
+      </div>
+    </div>
+
+    <div class="script">
+      <div class="script-header">The Ask — "Joint Innovation Pilot" (60 seconds)</div>
+      <div class="script-body">
+        "What we're proposing is a <strong>90-day Joint Innovation Pilot</strong> across 3 to 5 of your highest-volume California BAART sites. We handle everything: HIPAA compliance, 42 CFR Part 2, Kipu integration, clinician training, and ongoing support."
+        <br><br>
+        "The investment for the full pilot engagement — development, deployment, compliance, and managed support — is <strong>$500,000</strong>."
+        <br><br>
+        <em>Pause. Don't fill the silence.</em>
+        <br><br>
+        "And here's the part that makes this a no-brainer: <strong>if BayMark converts to a full enterprise deployment within 6 months of pilot completion, the entire pilot fee is credited against the enterprise license.</strong> So if this works — and we'll have the data to prove it — the pilot was free. If it doesn't hit the agreed metrics, you learned something valuable for $500K. Either way, BayMark wins."
+      </div>
+    </div>
+
+    <div class="script">
+      <div class="script-header">The Champion Close (30 seconds)</div>
+      <div class="script-body">
+        "[VP Name], I think you see the opportunity here. <strong>Who else would need to see this data before we could move forward on a pilot scope?</strong> I'd love to put together a tailored brief for your leadership team — and if it's helpful, I'm happy to present alongside you."
+        <br><br>
+        <em>This positions him as the driver. You're his resource, not his salesperson.</em>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 5: DEAL STRUCTURE -->
+<div class="section" id="s5">
+  <div class="container">
+    <span class="section-num">05 — Deal Structure</span>
+    <h2>Structuring the agreement <em>they can't refuse.</em></h2>
+    <p class="section-sub">The deal terms that derisk BayMark's decision while fully funding your build.</p>
+
+    <div class="grid-2">
+      <div class="card card-accent">
+        <div class="label label-sage">Payment Structure</div>
+        <h3>Three Milestone Payments</h3>
+        <p><strong>Milestone 1 — Signing:</strong> $200K upon execution of pilot agreement. Covers compliance infrastructure, Kipu integration dev, and HIPAA/42 CFR Part 2 audit.</p>
+        <p style="margin-top:8px;"><strong>Milestone 2 — Deployment:</strong> $200K upon go-live at first BAART site. Covers app build, clinician training, patient onboarding toolkit.</p>
+        <p style="margin-top:8px;"><strong>Milestone 3 — Completion:</strong> $100K upon delivery of 90-day outcomes report. Covers data analysis, publishable results package, scale-up recommendations.</p>
+      </div>
+      <div class="card card-gold">
+        <div class="label label-gold">Enterprise Credit Clause</div>
+        <h3>The "Risk Reversal"</h3>
+        <p>Include in the agreement: "Upon execution of an enterprise license agreement within 180 days of pilot completion, 100% of paid pilot fees shall be credited against Year 1 enterprise license fees."</p>
+        <p style="margin-top:8px;">This is the key to getting a "yes." BayMark's CFO sees it as: <strong>"If it works, the pilot was free. If it doesn't, we spent $500K on outcomes data we can use with DHCS and our PE board."</strong></p>
+      </div>
+    </div>
+
+    <div class="card card-purple">
+      <div class="label label-purple">Pilot Scope — What BayMark Gets</div>
+      <h3>The Deliverables Package</h3>
+      <p><strong>Technology Deliverables:</strong> Full VictoryAI platform (patient app + provider dashboard) customized for BayMark/BAART branding. Kipu EMR integration. HIPAA + 42 CFR Part 2 compliant infrastructure. iOS + Android deployment.</p>
+      <p style="margin-top:8px;"><strong>Clinical Deliverables:</strong> 200+ patient cohort onboarding. MAT adherence tracking with Suboxone/Methadone/Naltrexone protocols. COWS withdrawal monitoring. CBT module completion tracking. Family gamification engagement data.</p>
+      <p style="margin-top:8px;"><strong>Business Intelligence Deliverables:</strong> Real-time AI predictive analytics dashboard. Relapse risk scoring for clinical intervention. EMR-ready billing code data export (RTM, H2019, G2213/G2214, CoCM, BHI). 90-day outcomes report with publication-ready data.</p>
+      <p style="margin-top:8px;"><strong>Strategic Deliverables:</strong> ROI analysis for national rollout business case. Joint press release / case study rights. Co-authored abstract for ASAM or AAAP conference submission.</p>
+    </div>
+
+    <div class="card card-teal">
+      <div class="label label-teal">Success Metrics — Pre-Agreed</div>
+      <h3>Define "Win" Before You Start</h3>
+      <p>Pre-agree on these pilot success criteria so there's no ambiguity at evaluation:</p>
+      <p style="margin-top:8px;">1. <strong>Patient engagement:</strong> ≥60% of enrolled patients active 16+ days/month (RTM threshold)<br>
+      2. <strong>MAT adherence lift:</strong> ≥15% improvement vs. BayMark's baseline retention rate<br>
+      3. <strong>Billing data generation:</strong> ≥$300/patient/month in identifiable EMR-billable data<br>
+      4. <strong>Clinical integration:</strong> ≥80% clinician adoption of provider dashboard<br>
+      5. <strong>Technical reliability:</strong> 99.5% uptime, zero HIPAA incidents</p>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 6: OBJECTIONS -->
+<div class="section" id="s6">
+  <div class="container">
+    <span class="section-num">06 — Objection Handling</span>
+    <h2>When they push back — <em>you're ready.</em></h2>
+    <p class="section-sub">Every objection is a buying signal. Here's how to handle each one.</p>
+
+    <div class="card card-rose">
+      <h3>"$500K is a lot for unproven technology."</h3>
+      <p><strong>Response:</strong> "I understand — and that's exactly why we structured it as a creditable pilot. If VictoryAI hits the agreed metrics and you go enterprise, this $500K becomes a credit, not a cost. You're essentially making a refundable deposit on $1.2M+ in annual billing data. The question isn't whether $500K is a lot — it's whether leaving $1.2M on the table every year is more expensive."</p>
+    </div>
+
+    <div class="card card-rose">
+      <h3>"Can we just do a free trial first?"</h3>
+      <p><strong>Response:</strong> "We've seen what happens with free trials in healthcare — they get deprioritized. Nobody assigns clinicians, nobody tracks data, and 6 months later we're still 'evaluating.' The pilot fee ensures both sides have skin in the game. BayMark assigns real clinical sites and real patients, we deliver production-grade technology with full Kipu integration. A free trial gets you a demo. A funded pilot gets you an outcomes study you can take to your PE board and to DHCS."</p>
+    </div>
+
+    <div class="card card-rose">
+      <h3>"We need to run this by our IT team / legal / PE board."</h3>
+      <p><strong>Response:</strong> "Absolutely — and I'd expect nothing less for an investment of this size. Can I help prepare materials for each of those stakeholders? I have a technical architecture brief for IT, a compliance summary for legal showing our HIPAA and 42 CFR Part 2 positioning, and a one-page ROI model for the board. Would it help if I joined those conversations with you?"</p>
+      <p style="margin-top:8px;"><em>(This is where your champion strategy pays off — you're offering to arm him.)</em></p>
+    </div>
+
+    <div class="card card-rose">
+      <h3>"We're already looking at [competitor / building in-house]."</h3>
+      <p><strong>Response:</strong> "That's smart — you should evaluate every option. What I'd ask you to compare is time-to-value. An in-house build takes 18–24 months and $1M+ minimum before you see a single data point. A competitor without OUD-specific gamification, family engagement, and COWS/MAT integration is a general wellness app wearing a clinical hat. We've purpose-built every feature for the exact patient population in your BAART clinics. A 90-day pilot answers the question definitively — with data, not projections."</p>
+    </div>
+
+    <div class="card card-rose">
+      <h3>"Can you come down on price?"</h3>
+      <p><strong>Response:</strong> "I can adjust scope before I adjust price. If $500K is above your current budget authority, we could phase the pilot — start with 2 sites and 100 patients at $350K, with an option to expand to 5 sites at full scope. But I want to be transparent: the Kipu integration, HIPAA infrastructure, and compliance work are fixed costs regardless of patient count. The per-patient cost actually goes down significantly at 200+ patients."</p>
+      <p style="margin-top:8px;"><em>(This is how you negotiate down to your $350K floor while anchoring to a reduced scope, not a reduced value.)</em></p>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 7: TIMELINE -->
+<div class="section" id="s7">
+  <div class="container">
+    <span class="section-num">07 — Execution Timeline</span>
+    <h2>From first meeting <em>to signed check.</em></h2>
+    <p class="section-sub">Healthcare sales cycles are 6–12 months. Here's how to compress this to 90 days by controlling the pace.</p>
+
+    <div class="timeline">
+      <div class="tl-item active">
+        <div class="tl-label">Week 1–2</div>
+        <div class="tl-title">Discovery Meeting with VP of Ops</div>
+        <div class="tl-body">30-minute intro. 80% listening — learn his top 3 priorities. End with: "I'd love to show you something built specifically for this." Don't pitch pricing yet. Get the second meeting.</div>
+      </div>
+      <div class="tl-item active">
+        <div class="tl-label">Week 3</div>
+        <div class="tl-title">Tailored Demo + ROI Presentation</div>
+        <div class="tl-body">45-minute demo with BayMark-specific patient counts in the ROI calculator. End with the $500K pilot proposal. Hand him the 1-pager to forward internally. Ask: "Who else needs to see this?"</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-label">Week 4–5</div>
+        <div class="tl-title">Stakeholder Mapping + Materials Drop</div>
+        <div class="tl-body">Deliver customized briefs for each stakeholder the VP identifies: IT brief, legal/compliance brief, CFO ROI model, clinical director outcomes framework. Offer to join internal presentations.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-label">Week 6–8</div>
+        <div class="tl-title">Leadership Presentation + Negotiation</div>
+        <div class="tl-body">Present to Jason Kletter's team or the operating committee. VP of Ops introduces, you present. Negotiate terms. This is where the $500K → $400K dance happens. Hold firm on structure; flex on scope if needed.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-label">Week 9–10</div>
+        <div class="tl-title">Legal Review + Contract Execution</div>
+        <div class="tl-body">Accept BayMark's standard vendor agreement where possible — per Dreamit's advice, startups that redline every clause lose deals. Focus your negotiation energy on IP ownership, data rights, and the enterprise credit clause.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-label">Week 11–12</div>
+        <div class="tl-title">Milestone 1 Payment + Build Begins</div>
+        <div class="tl-body">$200K wires. You're funded. Build starts. The clock is running on your 90-day deployment commitment.</div>
+      </div>
+    </div>
+
+    <div class="warning">
+      <div class="warning-title">⚠ Urgency Lever — Use Carefully</div>
+      <p>"We're limiting our inaugural pilot partnerships to one organization per major OUD market. We have conversations active in [other state]. I'd love BayMark to be our California partner — but I need to know if this is a priority for you in the next 30 days." <strong>Only use this if it's true or you can make it true.</strong> Manufactured urgency destroys trust; genuine scarcity creates it.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 8: PRECEDENTS -->
+<div class="section" id="s8">
+  <div class="container">
+    <span class="section-num">08 — Precedents & Patterns</span>
+    <h2>How others <em>did it first.</em></h2>
+    <p class="section-sub">Real patterns from the digital therapeutics and health tech landscape that validate the paid-pilot-funds-development model.</p>
+
+    <div class="card card-accent">
+      <h3>The Pattern: Customer-Funded Development</h3>
+      <p>Across the DTx landscape — Omada Health (diabetes), Hinge Health (MSK), Pear Therapeutics (SUD), SWORD Health (physical therapy), and Big Health (insomnia) — the most common early revenue model was <strong>paid pilots with large health systems that covered development costs</strong>. The playbook is consistent:</p>
+      <p style="margin-top:12px;">1. <strong>Land one named-brand pilot partner</strong> — the "lighthouse customer" whose name validates you to everyone else.<br>
+      2. <strong>Structure the pilot as a "joint innovation" or "co-development"</strong> — not a vendor sale. The health system gets exclusivity, co-authorship on outcomes data, and the prestige of being first.<br>
+      3. <strong>Price the pilot to cover development + margin</strong> — because the next 10 deals will reference this pilot's outcomes.<br>
+      4. <strong>Use the outcomes data to raise your Series A at 3–5× better terms</strong> than you would have without it.</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card card-teal">
+        <div class="label label-teal">Pattern Match</div>
+        <h3>Pear Therapeutics (SUD)</h3>
+        <p>Built reSET and reSET-O — FDA-cleared digital therapeutics for substance use disorder. Their early model: paid clinical pilots with health systems that generated the outcomes data for FDA submission. Each pilot was structured as a co-development agreement. The health system funded the pilot; Pear used the data for clearance + fundraising.</p>
+      </div>
+      <div class="card card-teal">
+        <div class="label label-teal">Pattern Match</div>
+        <h3>Omada Health (Diabetes)</h3>
+        <p>Launched with paid pilots at major health systems where the health system paid for development and deployment. The outcomes data from those pilots became the basis for their commercial model and Series A raise. They now serve 1,800+ enterprise customers.</p>
+      </div>
+    </div>
+
+    <div class="card card-gold">
+      <h3>Why BayMark Specifically Should Say Yes</h3>
+      <p>BayMark is uniquely positioned to benefit from this pilot in ways their competitors cannot match:</p>
+      <p style="margin-top:12px;"><strong>Scale:</strong> With 300+ clinics, a successful pilot at 3–5 California sites immediately implies a 60× national rollout opportunity. No other OUD provider has this footprint. BayMark's PE investors will see a $500K pilot as a $30M+ annual revenue opportunity if it scales.</p>
+      <p style="margin-top:12px;"><strong>Data advantage:</strong> BayMark is already collaborating with California DHCS on outcomes data. A VictoryAI pilot gives them AI-powered predictive analytics and structured engagement data that makes their DHCS reporting 10× more compelling.</p>
+      <p style="margin-top:12px;"><strong>Competitive moat:</strong> If BayMark doesn't do this, Groups Recover Together or Bicycle Health will. And then BayMark's 300-clinic empire is competing with tech-enabled upstarts who can show better outcomes with smaller teams. This isn't optional — it's defensive.</p>
+    </div>
+
+    <div class="highlight">
+      <h3>Your One-Sentence Close</h3>
+      <p style="font-size:18px;line-height:1.6;color:#fff;font-family:'Cormorant Garamond',serif;font-style:italic;">"BayMark is the largest MAT provider in America. VictoryAI makes you the smartest. A $500K pilot that generates $1.2M in annual billing data isn't an expense — it's the highest-ROI investment your California operations will make this year."</p>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div>VictoryAI · Confidential Pitch Strategy · www.getvictoryai.com</div>
+  <div style="margin-top:8px;">Prepared for internal use only. Do not distribute.</div>
+</div>
+
+<script>
+function scrollTo_(id) {
+  document.getElementById(id).scrollIntoView({ behavior:'smooth', block:'start' });
+}
+// Tab highlighting on scroll
+const tabs = document.querySelectorAll('.nav-tab');
+const sections = document.querySelectorAll('.section');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 120) current = s.id;
+  });
+  tabs.forEach((t, i) => {
+    t.classList.toggle('active', 's' + (i + 1) === current);
+  });
+});
+</script>
+</body>
+</html>

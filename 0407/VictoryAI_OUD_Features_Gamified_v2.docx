@@ -1,0 +1,843 @@
+**VICTORYAI**
+
+*OUD Recovery Companion*
+
+**COMPREHENSIVE FEATURE LIST**
+
+Patient App + Provider Outcomes Analytics Dashboard
+
+HIPAA Compliant  ·  AES-256 Encrypted  ·  EMR Integration Ready  ·  42 CFR Part 2
+
+# PATIENT APP
+
+*Every feature is designed to collect structured clinical data, maximize engagement through gamification, and sync to the provider dashboard in real time. No billing is processed through the platform — all data is exported to EMR/Kipu for billing workflows.*
+
+## Recovery Counter & Home Dashboard
+
+- Days clean counter with real-time tracking
+
+- Hours in recovery, estimated money saved, health improvement percentage
+
+- Streak tracking (daily, weekly, milestone-based)
+
+- Level badge and XP balance in persistent header (tappable to Rewards)
+
+- Milestone share card — share achievements with family, sponsor, and care team
+
+- AI smart nudge — predicts peak craving windows and surfaces proactively on home screen
+
+## MAT Medication Tracker
+
+- Current medication display: drug name, dosage, formulation, prescriber, schedule
+
+- Supports Suboxone, Methadone, and Naltrexone (oral and injectable)
+
+- One-tap dose confirmation with XP reward (+50 XP)
+
+- "Remind Later" snooze option
+
+- Weekly adherence calendar — visual M/T/W/Th/F/S/S grid with done/due/pending states
+
+- Running adherence streak counter (e.g., “47-day streak · 100%”)
+
+- Side effects check — selectable tags: None, Headache, Nausea, Constipation, Drowsiness, Sweating
+
+- Pharmacy refill tracker — next refill date, pharmacy name and location
+
+- All MAT data syncs to provider dashboard in real time
+
+## Craving & Mood Tracking
+
+- Real-time craving slider (0–10 scale) on home screen
+
+- Dynamic color coding — green (low), gold (moderate), red (high)
+
+- Auto-triggered alert at craving ≥ 7 — links directly to Urge Support
+
+- Daily check-in screen with mood selector (emoji-based: Rough, Okay, Good, Great)
+
+- Craving, pain, and sleep quality sliders within check-in
+
+- Trigger selection tags: Stress, Pain, Boredom, Social, Financial, None
+
+- Submit with XP reward (+30 XP) — all check-in data syncs to provider in real time
+
+## COWS Withdrawal Tracker
+
+- Clinical Opiate Withdrawal Scale (COWS) assessment
+
+- Current score display with severity label (Minimal, Mild, Moderate, Severe)
+
+- Symptom-by-symptom rating: muscle/bone aches, anxiety/irritability, insomnia, cravings
+
+- Visual progress bars per symptom
+
+- Submit to Care Team button with XP reward (+35 XP)
+
+- Score syncs to provider dashboard for withdrawal trajectory monitoring
+
+## Pain Management Tools
+
+- Educational context: “Chronic pain is the #1 trigger for opioid relapse”
+
+- Non-opioid strategy library: Heat/Cold Therapy, Mindfulness for Pain, Gentle Movement, CBT for Chronic Pain
+
+- XP reward for using pain tools (+20 XP)
+
+- Pain data syncs to provider for pain-craving correlation analytics
+
+## Sage AI Companion
+
+- OUD-trained AI recovery companion available 24/7
+
+- Multi-language support (10+ languages)
+
+- Full conversational chat interface with message bubbles
+
+- Quick-action suggestion chips: non-opioid pain tips, craving plans, care team contact
+
+- Covers: craving intervention, pain management coaching, MAT education, relapse prevention, emotional support
+
+- XP reward per session (+15 XP)
+
+- Chat sentiment data analyzed via NLP and shared with provider (never raw transcripts)
+
+## Urge Support Mode
+
+- Activated manually or auto triggered at craving ≥ 7
+
+- Reassurance messaging with urge duration education (15–20 min average)
+
+- Animated guided breathing exercise (4-count visualization)
+
+- Quick-action crisis tools: call sponsor, Sage AI, grounding exercise (5-4-3-2-1), family reward anchor
+
+- Urge mode activation data tracked and synced to provider
+
+## Relapse Support Mode
+
+- Compassionate, non-judgmental interface: “This is not the end”
+
+- Action options: Call 911, report to care team (confidential), Sage AI, locate Narcan
+
+- XP, achievements, and family rewards are preserved after relapse
+
+- Relapse events logged and synced to provider with AI alert
+
+## Crisis / SOS Support
+
+- Persistent SOS floating action button visible on all screens
+
+- Emergency hotlines with tap-to-call: 911, 988, SAMHSA (1-800-662-4357), Crisis Text Line
+
+- Full care team contacts with individual Call and Text buttons:
+
+- MAT Prescriber (Dr. Rivera)
+
+- Therapist (Dr. Chen)
+
+- Sponsor (Mike R.)
+
+- Emergency Contact / Family Member (Mom)
+
+- Care team notified when SOS is accessed
+
+## Voice Journal
+
+- Audio recording interface with tap-to-record
+
+- AI-powered mood and sentiment analysis (NLP)
+
+- Recent entries log with date, duration, and detected mood
+
+- Privacy: words analyzed for mood patterns — never raw audio
+
+- XP reward per entry (+25 XP)
+
+- Strongest early relapse predictor: detects mood decline 5–7 days before events
+
+## Sleep & Recovery Log
+
+- Summary: hours slept, quality rating, logging streak
+
+- Sleep data correlated with morning craving levels
+
+- Educational framing: “Poor sleep amplifies cravings”
+
+- XP reward (+20 XP) — data syncs to provider
+
+## Body Recovery Timeline
+
+- Visual timeline of physical healing at current clean day count
+
+- Stages: Acute Withdrawal (Wk 1–2), GI Healing (Wk 3–4), Endorphin Restoration (Wk 5–8), Sleep/Mood Normalization (Mo 3+), Brain Receptor Healing (Mo 6+)
+
+- Done/Now/Upcoming status indicators with progress bars
+
+## CBT & Digital Therapeutics
+
+- Prescribed Digital Therapeutic: CBT for Substance Use (CBT4SUD)
+
+- 8-module structured program with progress tracking and completion percentage
+
+- Module library: Understanding OUD, MAT as Your Ally, Opioid Trigger Map, Pain Without Opioids, Rebuilding Relationships, Understanding Relapse
+
+- Done/Now/Next/Locked states with lesson counts per module
+
+- XP reward per session (+75 XP) and per lesson (+15 XP)
+
+- Session data generates documentation for EMR billing codes (H2019, G2213/G2214)
+
+## Naloxone (Narcan) Hub
+
+- Narcan kit inventory: dose count, formulation, expiration date
+
+- Family training status per family member
+
+- OD response plan — step-by-step guide
+
+- Find Free Narcan Near Me — pharmacies, health departments, community organizations
+
+- Fentanyl safety education — test strips, harm reduction
+
+- Narcan status syncs to provider Narcan Network dashboard
+
+## SDOH Monthly Wellness Screener
+
+- Social Determinants of Health screening: housing, food, transportation, social support
+
+- Simple response options per question
+
+- XP reward (+40 XP)
+
+- Responses generate Z-code documentation for EMR export (enables higher E/M billing)
+
+## Appointments & Attendance
+
+- Today’s schedule with color-coded types: MAT Clinic, Therapy, NA Meeting, Drug Court
+
+- Per-appointment “Confirm Attended” button with XP reward (+25 XP)
+
+- Upcoming appointments section
+
+- Attendance data syncs to provider dashboard
+
+## Drug Screen Tracker
+
+- UDS compliance dashboard with running completion rate and streak
+
+- Upcoming drug screen schedule with date, type (random/scheduled), and location
+
+- Confirm Screen Completed button with XP reward (+30 XP)
+
+- Recent results history with expected medication detection
+
+- Overdue screen alert with push notification
+
+- All UDS data syncs to provider for G0480-G0483 toxicology documentation
+
+- Results feed into AI relapse risk scoring and MAT adherence correlation
+
+## Group Session Check-In
+
+- Weekly group session schedule with session name, time, and facilitator
+
+- One-tap attendance confirmation with XP reward (+25 XP)
+
+- Session types: Relapse Prevention, MAT Education, CBT Skills, Pain &amp; Recovery, Peer Support
+
+- Monthly attendance stats and session duration tracking
+
+- Supports H0005/90853 group therapy and H2019 DTx billing documentation
+
+- AI correlates group attendance with relapse risk and engagement scores
+
+## Post-Discharge Transition Support (TCM)
+
+- Activates automatically when patient transitions between levels of care
+
+- Transition status display: Day X of 30, origin and destination level of care
+
+- TCM checklist: 2-day contact, medication reconciliation, face-to-face visit, 30-day follow-through
+
+- Auto-captures 2-day post-discharge contact via app check-in
+
+- Medication reconciliation confirmation against discharge orders
+
+- Daily transition check-in with adjustment status and medication compliance
+
+- Supports 99495 ($201) and 99496 ($273) TCM billing codes
+
+- Post-discharge daily check earns XP (+20 XP)
+
+- Transition Mode auto-triggered when discharge data syncs from Kipu EMR
+
+## Functional Status Assessment
+
+- Monthly check covering employment, daily living, and social support
+
+- Employment tracking: Full-time, Part-time, Seeking, Not able
+
+- Daily living assessment and social support strength rating
+
+- Supports CCM (99490) documentation and continued care authorization
+
+- Functional improvement trends support outcomes reporting to payers
+
+- XP reward for completion (+35 XP)
+
+## SBIRT Screening (Substance Use Risk Screen)
+
+- DAST-10 based validated substance use disorder risk screening tool
+
+- Completed annually or when transitioning between levels of care
+
+- Scoring with severity categorization: Low, Moderate, Substantial, Severe
+
+- Supports 99408 ($34) and 99409 ($67) SBIRT billing codes
+
+- XP reward for completion (+40 XP)
+
+- Data feeds into AI risk scoring and treatment outcome tracking
+
+## Naloxone Dispensing Documentation (G2216)
+
+- Take-home naloxone supply tracking: doses received, date, product type
+
+- Family training completion status per household member
+
+- Expiration monitoring with replacement reminders
+
+- Supports G2216 billing code (~$19 per dispensing)
+
+- Integrated within Narcan Hub alongside OD Response Plan and Narcan locator
+
+## Notifications Center
+
+- MAT dose reminders with XP incentive
+
+- Family reward notifications (“Mom added a new reward!”)
+
+- AI craving window predictions
+
+- Care team messages
+
+## Profile
+
+- User avatar, name, clean date, current level and XP
+
+- Current medication and prescriber
+
+- Care team listing: MAT Prescriber, Therapist, Sponsor
+
+- Connected family members with reward pledge counts
+
+- Settings, preferences, and privacy/data sharing controls
+
+# GAMIFICATION & FAMILY REWARDS SYSTEM
+
+*The gamification system is the primary engagement driver. Every XP-earning action directly generates structured clinical data for provider reporting and EMR billing code eligibility. Patients with active family rewards show 4.2× better retention and 34% lower relapse rates.*
+
+## XP Points System
+
+Every data-generating action earns XP:
+
+| **Action** | **XP Earned** |
+| --- | --- |
+| Log MAT medication | **+50** |
+| Complete daily check-in | **+30** |
+| Complete CBT/DTx session | **+75** |
+| Voice journal entry | **+25** |
+| Log sleep | **+20** |
+| Submit COWS assessment | **+35** |
+| Sage AI conversation | **+15** |
+| Use pain management tool | **+20** |
+| Complete monthly SDOH screener | **+40** |
+| Confirm appointment attended | **+25** |
+| Complete workbook lesson | **+15** |
+
+## Level Progression System
+
+6-level system with recovery-themed names:
+
+| **Level** | **Name** | **XP Threshold** |
+| --- | --- | --- |
+| **L1** | Seed | 0 |
+| **L2** | Sprout | 500 |
+| **L3** | Root | 1,200 |
+| **L4** | Bloom | 2,000 |
+| **L5** | Flourish | 3,000 |
+| **L6** | Thrive | 5,000 |
+
+## Family Reward Board
+
+- Family members pledge real-world incentives tied to recovery milestones
+
+- Reward types: gift cards, meals/dinners, experiences (movie night, fishing trip), trips
+
+- Visual progress bar per reward showing completion percentage
+
+- Milestone triggers: day count targets, level targets, streak targets
+
+- “Earned” badge for claimed rewards
+
+- Family reward reminders surface in Urge Mode as coping anchors
+
+- Family members receive milestone notifications
+
+## Achievements & Streaks
+
+- Unlockable achievement badges: 30 Day Hero, MAT Master, Sage Friend, and more
+
+- Badge grid in Rewards screen
+
+- Daily streak counter in recovery counter and MAT tracker
+
+- Weekly adherence calendar with visual M–S progress
+
+## Recovery Flame (Streak Visualization)
+
+*Leverages loss aversion psychology — people fear losing something 2× more than they enjoy gaining it. The Recovery Flame replaces the static streak counter with a living, animated visual element that patients feel compelled to protect.*
+
+- Animated flame icon replaces static streak counter — grows larger and changes color with streak length
+
+- Flame color tiers: Blue Flame (7 days), Purple Flame (30 days), Gold Flame (90 days), Platinum Flame (180 days), Diamond Flame (365 days)
+
+- Flame starts flickering if patient misses a day — push notification: “Your 47-day Recovery Flame is fading. Open VictoryAI to keep it alive.”
+
+- 4-hour grace window before flame tier drops (flame drops one tier but never fully resets — compassionate for recovery population)
+
+- Flame visible on Home screen, Rewards screen, and Recovery Ring peer profiles
+
+- Flame status syncs to provider Engagement & Gamification analytics dashboard
+
+## Streak Shields
+
+- One free Streak Shield per week — auto-protects the Recovery Flame if patient misses a day
+
+- Additional shields earned through Daily Quest completion or bonus actions
+
+- Shield inventory visible in Rewards screen and Recovery Flame header
+
+- Creates an economy of engagement — shields become a tradable currency that incentivizes consistent participation
+
+## Variable Ratio Reinforcement (Mystery XP)
+
+*Applies slot-machine psychology to recovery engagement. Unpredictable rewards keep dopamine firing and drive daily return rates 22% higher than fixed-reward systems.*
+
+- Mystery XP Drops: any action on any day could yield 2×, 3×, or 5× XP — patient doesn’t know which action or when
+
+- Animated XP popup celebration when bonus triggers — “Your voice journal just earned a 3× XP BONUS!”
+
+- Daily Treasure Chest: randomized reward unlocks after completing 3 of 5 daily tasks
+
+- Chest contents: bonus XP, avatar accessories, exclusive Sage AI meditations, or “family surprise” notifications
+
+- Mystery multiplier status indicator on Home screen — builds anticipation throughout the day
+
+## Daily Quests
+
+- 3 randomly generated micro-challenges each morning — refreshes every 24 hours
+
+- Example quests: “Log your MAT before 10am (+bonus XP)”, “Complete one CBT lesson today”, “Tell Sage about your biggest win this week”
+
+- Completing all 3 quests unlocks the Daily Treasure Chest bonus reward
+
+- Quest completion data generates additional clinical data points for provider reporting
+
+- Countdown timer visible on Home screen — “Refreshes in 14h” — creates urgency to return daily
+
+## Anonymous Recovery Leaderboard
+
+*Introduces social proof and peer comparison without compromising patient privacy. No real names, no clinical data — only gamification metrics. HIPAA-compliant competitive motivation.*
+
+- Ranked list by XP, streak length, CBT modules completed, or active days this month
+
+- Anonymous avatars and usernames only — no real names or clinical data ever displayed
+
+- Segmented by treatment stage (first 30 days, 30–90, 90+) so new patients aren’t demoralized
+
+- Leaderboard position syncs to provider engagement analytics for population-level insights
+
+## Recovery Rings (Anonymous Peer Groups)
+
+*Small anonymous peer groups of 5–8 patients at similar recovery stages, matched by AI. Functions like ambient, asynchronous AA meetings. Creates interdependent motivation through shared XP bonuses.*
+
+- AI-matched groups based on recovery stage, treatment type, and engagement level
+
+- Members share milestone celebrations and send encouragement emojis — see each other’s streak/flame status (never clinical data)
+
+- When someone in your Ring levels up, everyone earns a small XP bonus — interdependent motivation
+
+- If a member’s flame starts flickering, the Ring gets a subtle nudge: “A member of your Ring could use encouragement today”
+
+- Peer Kudos: anonymous encouragement tokens that give both sender and receiver XP (+5 XP each)
+
+- Fully anonymized — no clinical data shared, HIPAA compliant, no direct messaging
+
+## Recovery Journey Map
+
+*Exploits the completion/collection instinct. A visual world map that unlocks new “regions” as the patient progresses. Each region has 5–10 micro-achievements. Locked regions create curiosity and aspiration.*
+
+- 5 map regions: The Foundation, Building Roots, Deepening Recovery, Strength & Connection, Thriving
+
+- Each region contains 5–10 micro-achievements (e.g., complete first week of MAT, do 5 check-ins, connect a family member)
+
+- Region completion unlocks: unique avatar items, Sage AI personality upgrades (new conversation topics), family reward multipliers (2×)
+
+- Map always visible with locked regions ahead — showing what’s next drives CBT workbook adherence (patients in Region 3+ complete 2.8× more sessions)
+
+## Endowed Progress Effect
+
+- New patients start at 100 XP (not 0) with message: “You’ve already taken the hardest step — asking for help. Here’s 100 XP to start your journey.”
+
+- Visually shows 10% progress toward Level 2 (Sprout) at onboarding — increases L2 conversion rate by ~14%
+
+## Sage Smart Nudges (Personalized AI)
+
+*Applies TikTok-style hyper-personalization. Sage AI learns what keeps each patient specifically engaged and sends preemptive, behaviorally-timed push notifications. Push notification response rates become another signal for the predictive analytics dashboard.*
+
+- Preemptive craving nudges timed to individual behavioral patterns (e.g., 6:45 PM if peak window is 7–9 PM)
+
+- Re-engagement nudges if patient hasn’t opened the app by their usual time
+
+- Proactive CBT module recommendations when voice journal sentiment declines
+
+- Accuracy badge on Home screen shows AI confidence (e.g., “Based on your last 47 days of data · 89% accuracy”)
+
+## Gratitude Gifts (Reciprocity Loop)
+
+- Reverse channel for family rewards: patient sends personalized “Thank You” digital card to family members at milestones
+
+- Cards include non-clinical stats: “I’m 90 days clean because of your fishing trip pledge. Thank you, Dad.”
+
+- Family member receives via push notification or text — creates reciprocity loop (family pledges 2.1× more rewards after receiving a gratitude gift)
+
+## Recovery Completeness Score (Zeigarnik Effect)
+
+- Persistent percentage tracking how fully the patient uses the platform (e.g., 73%)
+
+- Specific actionable suggestions: “Connect a family member to reach 80%”, “Complete your first voice journal to unlock 85%”
+
+- Visible on both Home screen (dark bar) and Rewards screen (detailed card) — creates constant pull to “fill the bar”
+
+- Doubles as a provider metric: higher completeness = richer clinical data = more billing codes
+
+## CBT Cliffhangers (Zeigarnik Effect)
+
+- At end of each CBT workbook session, preview next module with a teaser: “Next: Why your brain lies to you about pain. Continue tomorrow for +75 XP.”
+
+- Visible on Workbook/Learn screen between current and locked modules
+
+- Italic preview text creates curiosity and drives next-day return for session completion
+
+## Milestone Share (Viral Growth Loop)
+
+- At major milestones (30, 60, 90, 180, 365 days), generate a beautifully designed shareable card
+
+- Card shows: day count, level, flame tier, VictoryAI branding — no clinical data
+
+- “Share to Social” and “Copy Card” buttons in Rewards screen — each share is organic advertising to audiences that likely include other people who need the app
+
+- Recovery de-stigmatization trend means patients increasingly want to celebrate publicly — turns users into growth channel
+
+# PROVIDER OUTCOMES ANALYTICS DASHBOARD
+
+*16 dashboard views with AI predictive analytics throughout. Every view includes KPIs, charts, and an AI insight card with actionable recommendations. HIPAA compliant, AES-256 encrypted, role-based access.*
+
+## Dashboard Overview
+
+- KPI grid: Active OUD Patients, MAT Adherence Rate, Active Alerts (AI-prioritized), App Engagement
+
+- AI Priority Alert card — highest-risk patients with relapse probability and recommended interventions
+
+- Chart pairs: MAT Adherence + Gamification Engagement, Craving Trends + Urge Activations, COWS Scores + High-Risk Count, Mood + Sentiment
+
+- Patient Roster preview — AI risk-sorted with gamification status and family reward engagement
+
+- Gamification Impact panel: engagement %, families connected, retention lift, avg active days
+
+- Feature Engagement bar chart across all 10 patient tools
+
+- EMR-Ready Data Summary: monthly billable data, RTM-eligible, DTx-eligible, SDOH Z-codes
+
+## Patient Roster
+
+- Full patient list sorted by AI risk score
+
+- Per-patient: medication, clean days, AI risk %, gamification level, family rewards, engagement %
+
+- Risk badges: High (red), Medium (gold), Low (green)
+
+- AI insight analyzing family reward engagement correlation with outcomes
+
+## Clinical Alerts (AI-Prioritized)
+
+- Risk-ranked alert queue combining MAT adherence, craving patterns, voice journal sentiment, sleep quality, gamification engagement, and family reward activity
+
+- Alert severity: High / Medium / Low with specific risk factors and AI-recommended interventions
+
+## MAT Adherence Analytics
+
+- KPIs: overall adherence, patient counts by medication type
+
+- Adherence by medication bar chart (Suboxone, Methadone, Naltrexone)
+
+- AI Insight: gamification impact on adherence, injectable vs. oral comparison, per-patient pattern analysis
+
+## COWS / Withdrawal Dashboard
+
+- KPIs: average COWS score, patient distribution by severity
+
+- COWS trend line chart with high-risk count overlay
+
+- AI Withdrawal Prediction: trajectory pattern matching, time-to-severe estimation
+
+## Craving Analytics
+
+- KPIs: average craving score, high-craving count, urge activations, peak window identification
+
+- Population craving trend with urge mode overlay
+
+- AI: pain-craving correlation, workbook module impact, urge mode effectiveness with family rewards
+
+## Pain Tracking Analytics
+
+- KPIs: average pain, pain-craving correlation coefficient, non-opioid tool usage, module completion
+
+- Pain vs. craving correlation chart
+
+- AI: mindfulness tool impact, per-patient intervention recommendations
+
+## Narcan Network
+
+- KPIs: coverage rate, patients without Narcan, expiring kits, family training rate
+
+- AI: cross-reference with relapse risk, priority distribution recommendations
+
+## Engagement & Gamification Analytics
+
+- KPIs: average engagement, active days, family rewards pledged, families connected
+
+- Feature usage bar chart across all tools
+
+- AI: family reward board as #1 driver, XP-data density correlation, RTM threshold analysis, family onboarding revenue projection
+
+## Mood & Sentiment Analytics
+
+- KPIs: average mood, positive sentiment %, voice journal volume, check-in rate
+
+- Mood trend with sentiment overlay
+
+- AI: voice journal NLP as strongest early relapse predictor (5–7 day lead time), auto-triggered alerts, family reward mood boost analysis
+
+## Workbook / DTx Progress
+
+- KPIs: average completion, sessions/month, DTx-eligible patients, XP per session
+
+- AI: CBT completion-retention correlation, gamification engagement impact, below-threshold identification
+
+## Clinical Assessments
+
+- KPIs: PHQ-9 average, GAD-7 average, Recovery Capital score, compliance rate
+
+- Trend tracking from baseline
+
+- AI: gamification level-assessment correlation, recovery capital increase per level
+
+## Appointment Attendance
+
+- KPIs: MAT clinic %, therapy %, NA/support %, overall average
+
+- AI: XP reward impact on self-reporting, family milestone-attendance correlation, gap detection
+
+## Group Therapy Attendance
+
+- Monthly session count, attendance rate, and H0005 billing data estimate
+
+- Session roster by group type with per-group metrics
+
+- Patient-level group attendance tracking with engagement correlation
+
+- App check-in captures 91% of attendance vs. 67% with paper sign-in
+
+- Each documented session supports H0005 billing (~$27-$45/session)
+
+## Drug Screen Management
+
+- UDS compliance rate dashboard with historical trend
+
+- Monthly screen count and G0480-G0483 toxicology billing data estimate
+
+- Patient-level compliance: last screen, schedule, overdue status, result
+
+- Positive result flagging with care team notification
+
+- AI cross-references positive results with engagement and sentiment data
+
+## Transitional Care Management (TCM) Tracking
+
+- Active transitions dashboard: patient count, contact rate, TCM revenue, missed follow-ups
+
+- Per-patient transition tracking with TCM milestone checklist status
+
+- Billing readiness indicators: In Progress, On Track, Ready to Bill
+
+- Code assignment: 99495 (moderate, $201) vs. 99496 (high, $273)
+
+- AI auto-captures 2-day contact via app check-in
+
+- Historical TCM revenue tracking with month-over-month comparison
+
+## CCM / PCM Care Plan Management
+
+- CCM eligible patients (2+ chronic conditions): count, care plan status, monthly time
+
+- PCM eligible patients (OUD single complex condition): count, care plan status
+
+- Complex CCM eligible (3+ conditions): count, code assignment (99487, $133/mo)
+
+- Auto-tracks between-visit engagement time from all patient app interactions
+
+- Time thresholds: 20 min CCM (99490, $62/mo), 30 min PCM (99424, $82/mo)
+
+- AI recommends comorbidity screening for PCM patients who may qualify for CCM
+
+- Monthly CCM/PCM billing data estimate with per-patient breakdown
+
+## AI Predictive Analytics
+
+- Individual relapse risk predictions with probability percentages and confidence scores
+
+- Contributing factor analysis: MAT adherence, engagement, family rewards, cravings, voice sentiment, pain-craving correlation
+
+- Post-relapse trajectory analysis with pre-relapse voice journal NLP detection
+
+- Pain-craving escalation forecasting with correlation coefficients
+
+- Gamification-driven retention analysis: family reward lift, relapse reduction, RTM projections
+
+- Population trend summary across all metrics
+
+- AI Risk Score Distribution chart: Low (0–30), Medium (31–60), High (61–80), Critical (81+)
+
+## EMR Data Export
+
+- Monthly billable data captured, annual projected, RTM-eligible rate
+
+- CPT code eligibility table with data source per code
+
+- Monthly EMR export trend chart (stacked by code category)
+
+- AI Revenue Optimization: below-threshold identification, gamification nudge recovery projections
+
+- Clear positioning: VictoryAI captures and exports data — all billing handled through EMR/Kipu
+
+## Leadership ROI Dashboard
+
+- KPIs: annual billable data (via EMR), platform ROI multiple, reduced readmissions, patient retention
+
+- Revenue Impact comparison: Pre-VictoryAI vs. With VictoryAI across all code categories
+
+- AI Leadership Summary: ROI, gamification-driven engagement lift, family reward retention impact
+
+# PLATFORM & TECHNICAL
+
+## Security & Compliance
+
+- HIPAA compliant
+
+- AES-256 encryption (end-to-end, data in transit and at rest)
+
+- Role-based access control
+
+- 42 CFR Part 2 compliance for substance use disorder confidentiality
+
+## EMR Integration
+
+- Kipu EMR integration ready
+
+- Structured clinical data export for billing documentation
+
+- No billing processed through VictoryAI — all claims flow through existing EMR workflows
+
+- Auto-generated documentation for CPT code eligibility
+
+## Supported Billing Codes (Data Captured by VictoryAI)
+
+| **Code** | **Description** | **Patient Data Source** |
+| --- | --- | --- |
+| **99490** | CCM Care Management (20 min/mo) | Between-visit app engagement time |
+| **99424** | PCM Principal Care (30 min/mo) | OUD-only patient app time |
+| **99495/96** | TCM Post-Discharge | Post-discharge app tracking |
+| **H0005** | Group Therapy Attendance | App group session check-in |
+| **G0480-83** | Drug Screen / Toxicology | UDS compliance tracking |
+| **G2216** | Take-Home Naloxone Supply | Narcan hub dispensing records |
+| **99408/09** | SBIRT Screening | DAST-10 risk screening |
+| **98975** | RTM Device Setup | Initial app enrollment |
+| **98977** | RTM Device Supply (16+ days/mo) | Daily app engagement |
+| **98980** | RTM Treatment Mgmt (first 20 min) | Check-in + MAT data |
+| **98981** | RTM Treatment Mgmt (add’l 20 min) | Extended engagement data |
+| **H2019** | Digital CBT Sessions (per 15 min) | DTx module completion |
+| **G2213** | OUD Treatment Initiation | First-month MAT enrollment |
+| **G2214** | OUD Treatment Continuation | Ongoing MAT + engagement |
+| **96156** | Health Behavior Assessment | SDOH screening |
+| **96158** | Health Behavior Intervention | CBT session data |
+| **99484** | BHI Care Management | Medication adherence + mood |
+| **99492** | CoCM Initial Month | BH + PCP collaboration data |
+| **99493** | CoCM Subsequent Months | Ongoing registry management |
+| **Z59.0+** | SDOH Z-codes | Monthly SDOH screener |
+
+## Data Collection Points (Patient → Provider)
+
+All patient interactions generate structured clinical data flowing to the provider dashboard in real time:
+
+- MAT dose confirmations (time, adherence streak, side effects)
+
+- Craving levels (0–10, timestamps, frequency)
+
+- Pain levels (0–10, correlation with cravings)
+
+- COWS withdrawal scores (per-symptom breakdown)
+
+- Mood ratings (emoji-based + voice sentiment NLP)
+
+- Sleep quality and duration
+
+- CBT/DTx session completion (module, duration, progress)
+
+- Voice journal entries (AI sentiment analysis)
+
+- Trigger identification (tagged categories)
+
+- SDOH screening responses (housing, food, transport, social)
+
+- Appointment attendance confirmations
+
+- Narcan kit status (doses, expiration, family training)
+
+- Urge mode activations (timestamp, resolution)
+
+- Relapse reports (self-reported, confidential)
+
+- Gamification engagement (XP, level, active days, family rewards)
+
+- App engagement patterns (features used, session duration, active days/month)
+
+- Drug screen dates, results, compliance rate, and overdue alerts
+
+- Group therapy attendance: session type, facilitator, duration, frequency
+
+- Post-discharge transition data: 2-day contact, med reconciliation, follow-up status
+
+- Functional status: employment, daily living, social support (monthly)
+
+- SBIRT screening scores and severity categorization (annual/transition)
+
+- Naloxone dispensing records: doses, dates, family training status (G2216)
+
+- Between-visit engagement time for CCM/PCM care plan documentation
+
+*VictoryAI · OUD Recovery Companion **&** Outcomes Analytics Platform*
+
+www.getvictoryai.com

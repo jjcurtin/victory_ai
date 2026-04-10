@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VictoryAI — OUD Recovery Companion & Outcomes Analytics Platform</title>
+<meta name="description" content="AI-powered OUD recovery companion + provider outcomes intelligence. MAT tracking, COWS monitoring, Sage AI, Family Reward Board, Recovery Flame streaks, Recovery Rings peer groups, and a real-time AI predictive analytics dashboard for OUD treatment providers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Josefin+Sans:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --rose: #C4A088; --rose-light: #D4B8A4; --rose-pale: #F3ECE6; --rose-dark: #9B7A64; --rose-muted: #B8937B;
+  --espresso: #3A3330; --espresso-light: #4A4340; --brown: #6B5E56;
+  --taupe: #E8DDD4; --cream: #FAF8F6; --beige: #F3ECE6; --off-white: #FDFCFB;
+  --sage: #7A9E7E; --sage-dark: #5B7E5F; --sage-light: #E8F0E9;
+  --coral: #D4736A; --coral-pale: #F5E0DD;
+  --gold: #C9A84C; --gold-pale: #FBF4E2;
+  --purple: #8B7EC8; --purple-pale: #EDE9F6;
+  --forest: #2D5A3D; --forest-light: #4A7C59;
+  --muted: #9A8E85; --border: rgba(196,160,136,.15);
+  --teal: #2E6171;
+  --navy: #0D1F2D;
+}
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; -webkit-font-smoothing:antialiased; }
+body { font-family:'Cormorant Garamond',Georgia,serif; color:var(--espresso); background:var(--cream); overflow-x:hidden; font-size:18px; line-height:1.8; }
+::selection { background:var(--beige); color:var(--espresso); }
+::-webkit-scrollbar { width:5px; }
+::-webkit-scrollbar-track { background:var(--cream); }
+::-webkit-scrollbar-thumb { background:var(--taupe); border-radius:2px; }
+img { max-width:100%; display:block; }
+a { text-decoration:none; color:inherit; }
+
+.ui { font-family:'Josefin Sans','Helvetica Neue',sans-serif; }
+.container { max-width:1140px; margin:0 auto; padding:0 28px; }
+.container-sm { max-width:700px; margin:0 auto; padding:0 28px; }
+.section { padding:120px 0; }
+.text-center { text-align:center; }
+
+.tag { display:inline-block; padding:6px 18px; border-radius:100px; font-family:'Josefin Sans',sans-serif; font-size:10px; font-weight:400; letter-spacing:3px; text-transform:uppercase; }
+.tag-rose { background:rgba(196,160,136,.12); color:#8C6B55; }
+.tag-sage { background:rgba(122,158,126,.12); color:#3D5E40; }
+.tag-coral { background:rgba(212,115,106,.12); color:#A0433A; }
+.tag-gold { background:rgba(201,168,76,.12); color:#8A7230; }
+.tag-purple { background:rgba(139,126,200,.12); color:#5A4E8C; }
+.tag-forest { background:rgba(45,90,61,.1); color:#2D5A3D; }
+.tag-teal { background:rgba(196,160,136,.12); color:#8C6B55; }
+
+.btn { display:inline-flex; align-items:center; justify-content:center; padding:15px 36px; border-radius:100px; font-family:'Josefin Sans',sans-serif; font-size:12px; font-weight:400; letter-spacing:2.5px; text-transform:uppercase; cursor:pointer; transition:all .35s cubic-bezier(.4,0,.2,1); border:none; text-decoration:none; }
+.btn-primary { background:var(--espresso); color:var(--cream); box-shadow:0 6px 24px rgba(58,51,48,.12); }
+.btn-primary:hover { background:var(--espresso-light); transform:translateY(-2px); box-shadow:0 12px 36px rgba(58,51,48,.2); }
+.btn-outline { background:transparent; color:var(--espresso); border:1.5px solid var(--rose); }
+.btn-outline:hover { background:var(--rose-pale); transform:translateY(-1px); }
+.btn-lg { padding:18px 48px; font-size:12px; }
+.btn-forest { background:var(--forest); color:#fff; box-shadow:0 6px 24px rgba(45,90,61,.2); }
+.btn-forest:hover { background:var(--forest-light); transform:translateY(-2px); box-shadow:0 12px 36px rgba(45,90,61,.25); }
+.btn-teal { background:var(--espresso); color:#fff; box-shadow:0 6px 24px rgba(58,51,48,.2); }
+.btn-teal:hover { background:var(--espresso-light); transform:translateY(-2px); }
+.btn-rose { background:var(--rose); color:#fff; box-shadow:0 6px 24px rgba(196,160,136,.3); }
+.btn-rose:hover { background:var(--rose-dark); transform:translateY(-2px); }
+.btn-block { width:100%; }
+
+/* Animations */
+@keyframes fadeUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+@keyframes heroReveal { from { opacity:0; transform:translateY(40px); } to { opacity:1; transform:translateY(0); } }
+@keyframes phoneReveal { from { opacity:0; transform:translateY(25px) scale(.97); } to { opacity:1; transform:translateY(0) scale(1); } }
+@keyframes softFloat { 0% { transform:translateY(0); } 100% { transform:translateY(-14px); } }
+@keyframes gentlePulse { 0%,100% { box-shadow:0 0 0 0 rgba(122,158,126,.3); } 50% { box-shadow:0 0 0 12px rgba(122,158,126,0); } }
+@keyframes shimmer { 0% { background-position:-200% 0; } 100% { background-position:200% 0; } }
+@keyframes typing { 0% { opacity:.3; } 50% { opacity:1; } 100% { opacity:.3; } }
+@keyframes countUp { from { opacity:0; transform:scale(.8); } to { opacity:1; transform:scale(1); } }
+@keyframes slideRight { from { width:0; } to { width:100%; } }
+@keyframes orbitSlow { 0% { transform:rotate(0deg); } 100% { transform:rotate(360deg); } }
+
+.reveal { opacity:0; transform:translateY(30px); transition:opacity .8s ease-out, transform .8s ease-out; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+.reveal-d1 { transition-delay:.1s; } .reveal-d2 { transition-delay:.2s; } .reveal-d3 { transition-delay:.3s; }
+.reveal-d4 { transition-delay:.4s; } .reveal-d5 { transition-delay:.5s; } .reveal-d6 { transition-delay:.6s; }
+
+/* ====== NAVBAR ====== */
+.navbar { position:fixed; top:0; left:0; right:0; z-index:1000; padding:20px 40px; display:flex; align-items:center; justify-content:space-between; transition:all .4s cubic-bezier(.4,0,.2,1); }
+.navbar.scrolled { padding:12px 40px; background:rgba(250,248,246,.97); backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px); border-bottom:1px solid var(--border); box-shadow:0 4px 24px rgba(58,51,48,.06); }
+.nav-brand { display:flex; align-items:center; gap:10px; }
+.nav-logo-icon { width:32px; height:32px; background:linear-gradient(135deg,var(--rose),var(--sage)); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:16px; }
+.nav-logo-text { font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:700; color:var(--espresso); letter-spacing:.3px; }
+.navbar.scrolled .nav-logo-text { font-size:28px; }
+.nav-logo-text span { font-weight:300; opacity:.5; }
+.nav-links { display:flex; align-items:center; gap:28px; }
+.nav-links a:not(.btn) { font-family:'Josefin Sans',sans-serif; font-size:11px; font-weight:400; letter-spacing:2.5px; text-transform:uppercase; color:var(--espresso); opacity:.5; transition:opacity .3s; }
+.nav-links a:not(.btn):hover { opacity:1; }
+.nav-cta { margin-left:10px; }
+.mobile-toggle { display:none; background:none; border:none; font-size:22px; cursor:pointer; color:var(--espresso); }
+
+/* ====== HERO ====== */
+.hero { min-height:100vh; position:relative; display:flex; align-items:center; overflow:hidden; background:linear-gradient(180deg, var(--cream) 0%, var(--beige) 40%, var(--taupe) 100%); }
+.hero-orb { position:absolute; border-radius:50%; pointer-events:none; }
+.hero-orb-1 { top:-15%; right:-5%; width:50vw; height:50vw; background:radial-gradient(circle, rgba(196,160,136,.07) 0%, transparent 70%); }
+.hero-orb-2 { bottom:-15%; left:-10%; width:45vw; height:45vw; background:radial-gradient(circle, rgba(122,158,126,.06) 0%, transparent 70%); }
+.hero-orb-3 { top:30%; left:50%; width:30vw; height:30vw; background:radial-gradient(circle, rgba(201,168,76,.03) 0%, transparent 70%); }
+.hero-grain { position:absolute; inset:0; opacity:.015; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
+.hero-petal { position:absolute; border-radius:50% 50% 50% 0%; pointer-events:none; opacity:.15; }
+.hero-petal:nth-child(1) { width:40px; height:40px; background:var(--rose-pale); top:20%; left:10%; animation:softFloat 9s ease-in-out infinite alternate; }
+.hero-petal:nth-child(2) { width:50px; height:50px; background:var(--taupe); top:38%; right:12%; animation:softFloat 11s ease-in-out infinite alternate; animation-delay:-2s; }
+.hero-petal:nth-child(3) { width:35px; height:35px; background:var(--sage-light); top:60%; left:58%; animation:softFloat 8s ease-in-out infinite alternate; animation-delay:-4s; }
+.hero-inner { max-width:1140px; margin:0 auto; padding:140px 28px 100px; display:flex; align-items:center; gap:80px; position:relative; z-index:2; }
+.hero-content { flex:1 1 440px; max-width:560px; animation:heroReveal .9s ease-out forwards; }
+.hero-eyebrow { font-family:'Josefin Sans',sans-serif; font-size:10px; font-weight:400; letter-spacing:3px; text-transform:uppercase; color:var(--rose-dark); margin-bottom:16px; }
+.hero-title { font-size:54px; font-weight:500; color:var(--espresso); line-height:1.1; letter-spacing:-.5px; margin-bottom:24px; }
+.hero-title em { font-style:italic; font-weight:300; color:var(--sage-dark); }
+.hero-body { font-family:'Josefin Sans',sans-serif; font-size:16px; font-weight:300; line-height:1.9; color:var(--brown); max-width:460px; margin-bottom:36px; letter-spacing:.2px; }
+.hero-buttons { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:32px; }
+.hero-trust { display:flex; align-items:center; gap:24px; flex-wrap:wrap; }
+.hero-trust-item { display:flex; align-items:center; gap:8px; }
+.hero-trust-icon { font-size:14px; }
+.hero-trust-text { font-family:'Josefin Sans',sans-serif; font-size:11px; color:var(--muted); letter-spacing:.5px; font-weight:300; }
+.hero-phone-wrap { flex:0 0 auto; animation:phoneReveal .9s ease-out .25s both; }
+
+/* Phone Mockup */
+.phone { width:280px; height:590px; border-radius:40px; overflow:hidden; background:var(--off-white); border:5px solid var(--espresso); box-shadow:0 40px 80px rgba(58,51,48,.12), 0 0 0 1px rgba(58,51,48,.04), inset 0 0 0 1px rgba(255,255,255,.1); position:relative; }
+.phone-notch { position:absolute; top:0; left:50%; transform:translateX(-50%); width:90px; height:24px; background:var(--espresso); border-radius:0 0 16px 16px; z-index:10; }
+.phone-screen { padding:40px 14px 14px; height:100%; overflow:hidden; }
+.phone-sober { background:linear-gradient(135deg,var(--espresso),var(--espresso-light)); border-radius:4px; padding:18px 14px; text-align:center; margin-bottom:8px; position:relative; overflow:hidden; }
+.phone-sober::after { content:''; position:absolute; top:-20px; right:-20px; width:80px; height:80px; border-radius:50%; background:rgba(196,160,136,.06); }
+.phone-sober-num { font-size:38px; font-weight:600; color:#fff; line-height:1; font-family:'Cormorant Garamond',serif; }
+.phone-btns { display:flex; gap:5px; margin-bottom:8px; }
+.phone-btn-urge { flex:1; padding:9px; border-radius:8px; background:linear-gradient(135deg,#E09B60,var(--coral)); text-align:center; }
+.phone-btn-relapse { flex:1; padding:9px; border-radius:8px; background:linear-gradient(135deg,var(--coral),#B85A52); text-align:center; }
+.phone-card { background:#fff; border-radius:4px; border:1px solid var(--border); padding:10px 12px; margin-bottom:6px; }
+.phone-coach-card { background:linear-gradient(135deg,#4A7C59,#2D5A3D); border-radius:4px; padding:10px 12px; margin-bottom:6px; display:flex; align-items:center; gap:8px; }
+.phone-moods { display:flex; justify-content:space-between; padding:4px 0; }
+.phone-mood { font-size:22px; padding:4px 8px; border-radius:6px; cursor:default; transition:all .2s; }
+.phone-mood.active { background:var(--beige); border:2px solid var(--rose); }
+
+/* ====== STATS BAR ====== */
+.stats-bar { background:var(--espresso); padding:52px 0; position:relative; overflow:hidden; }
+.stats-bar::before { content:''; position:absolute; inset:0; background:linear-gradient(90deg, rgba(196,160,136,.04), rgba(122,158,126,.04), rgba(196,160,136,.04)); }
+.stats-grid { max-width:960px; margin:0 auto; display:grid; grid-template-columns:repeat(4,1fr); gap:30px; text-align:center; position:relative; padding:0 28px; }
+.stat-num { font-family:'Cormorant Garamond',serif; font-size:42px; font-weight:500; color:var(--rose); line-height:1; }
+.stat-label { font-family:'Josefin Sans',sans-serif; font-size:10px; color:rgba(255,255,255,.65); font-weight:300; margin-top:8px; text-transform:uppercase; letter-spacing:2.5px; }
+
+/* ====== FEATURES ====== */
+.features-section { background:linear-gradient(180deg, var(--cream) 0%, var(--beige) 100%); }
+.section-title { font-size:44px; font-weight:500; color:var(--espresso); line-height:1.12; margin-top:16px; }
+.section-title em { font-style:italic; font-weight:300; }
+.features-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:14px; margin-top:56px; }
+.feature-card { background:#fff; border-radius:4px; padding:30px 24px; border:1px solid var(--border); text-align:left; transition:all .35s cubic-bezier(.4,0,.2,1); cursor:default; }
+.feature-card:hover { transform:translateY(-4px); box-shadow:0 20px 50px rgba(58,51,48,.06); }
+.feature-icon { width:46px; height:46px; border-radius:4px; display:flex; align-items:center; justify-content:center; font-size:20px; margin-bottom:16px; }
+.feature-title { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:600; color:var(--espresso); margin-bottom:8px; }
+.feature-desc { font-family:'Josefin Sans',sans-serif; font-size:14px; font-weight:300; color:var(--muted); line-height:1.8; letter-spacing:.2px; }
+
+/* ====== SAGE SECTION ====== */
+.sage-section { background:linear-gradient(160deg, #4a4542, #5a5350, #6b5e56); position:relative; overflow:hidden; }
+.sage-glow { position:absolute; top:-20%; left:-10%; width:50vw; height:50vw; border-radius:50%; background:radial-gradient(circle, rgba(122,158,126,.1) 0%, transparent 70%); }
+.sage-glow-2 { position:absolute; bottom:-20%; right:-10%; width:40vw; height:40vw; border-radius:50%; background:radial-gradient(circle, rgba(196,160,136,.06) 0%, transparent 70%); }
+.sage-inner { max-width:1140px; margin:0 auto; padding:120px 28px; display:flex; align-items:center; gap:64px; position:relative; z-index:1; }
+.sage-content { flex:1 1 380px; max-width:460px; }
+.sage-title { font-size:44px; font-weight:500; color:#fff; line-height:1.12; margin:16px 0; }
+.sage-title em { font-style:italic; font-weight:300; color:var(--sage); }
+.sage-body { font-family:'Josefin Sans',sans-serif; font-size:15px; font-weight:300; line-height:1.9; color:rgba(255,255,255,.85); margin-bottom:28px; letter-spacing:.2px; }
+.sage-checks { display:flex; flex-direction:column; gap:10px; margin-bottom:32px; }
+.sage-check { display:flex; align-items:center; gap:12px; }
+.sage-check-dot { width:22px; height:22px; border-radius:6px; background:rgba(122,158,126,.2); display:flex; align-items:center; justify-content:center; font-size:10px; color:var(--sage); flex-shrink:0; }
+.sage-check-text { font-family:'Josefin Sans',sans-serif; font-size:14px; font-weight:300; color:rgba(255,255,255,.9); letter-spacing:.3px; }
+
+/* Sage Demo Chat */
+.sage-chat { flex:0 0 auto; width:400px; background:rgba(0,0,0,.15); border-radius:4px; border:1px solid rgba(255,255,255,.08); overflow:hidden; backdrop-filter:blur(12px); }
+.sage-chat-header { padding:16px 20px; border-bottom:1px solid rgba(255,255,255,.06); display:flex; align-items:center; gap:12px; }
+.sage-avatar { width:36px; height:36px; border-radius:4px; background:linear-gradient(135deg,var(--sage),var(--sage-dark)); display:flex; align-items:center; justify-content:center; font-size:16px; }
+.sage-chat-name { font-family:'Josefin Sans',sans-serif; font-size:12px; font-weight:400; color:#fff; letter-spacing:.5px; }
+.sage-chat-status { font-family:'Josefin Sans',sans-serif; font-size:9px; color:var(--sage); letter-spacing:.5px; display:flex; align-items:center; gap:5px; }
+.sage-chat-status::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--sage); animation:gentlePulse 2s infinite; }
+.sage-chat-area { padding:16px 16px 8px; min-height:280px; max-height:320px; overflow-y:auto; display:flex; flex-direction:column; gap:10px; }
+.sage-chat-area::-webkit-scrollbar { width:3px; }
+.sage-chat-area::-webkit-scrollbar-thumb { background:rgba(255,255,255,.1); border-radius:2px; }
+.sage-msg { max-width:85%; padding:12px 16px; border-radius:4px; font-size:14px; line-height:1.7; font-family:'Cormorant Garamond',serif; animation:fadeUp .4s ease both; }
+.sage-msg-bot { background:rgba(255,255,255,.08); color:rgba(255,255,255,.9); border-bottom-left-radius:4px; }
+.sage-msg-user { background:var(--sage); color:#fff; margin-left:auto; border-bottom-right-radius:4px; }
+.sage-typing { padding:12px 16px; border-radius:4px; background:rgba(255,255,255,.05); max-width:80px; display:flex; gap:4px; align-items:center; }
+.sage-typing-dot { width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,.4); animation:typing 1.2s infinite; }
+.sage-typing-dot:nth-child(2) { animation-delay:.2s; }
+.sage-typing-dot:nth-child(3) { animation-delay:.4s; }
+.sage-chat-input { display:flex; align-items:center; gap:8px; padding:12px 16px; border-top:1px solid rgba(255,255,255,.06); }
+.sage-input { flex:1; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08); border-radius:100px; padding:10px 16px; font-family:'Josefin Sans',sans-serif; font-size:12px; color:#fff; outline:none; letter-spacing:.3px; transition:border-color .2s; }
+.sage-input::placeholder { color:rgba(255,255,255,.3); }
+.sage-input:focus { border-color:var(--sage); }
+.sage-send { width:36px; height:36px; border-radius:50%; background:var(--sage); border:none; color:#fff; font-size:14px; cursor:pointer; transition:all .2s; display:flex; align-items:center; justify-content:center; }
+.sage-send:hover { background:var(--sage-dark); transform:scale(1.05); }
+.sage-prompts { display:flex; flex-wrap:wrap; gap:6px; padding:8px 16px 14px; }
+.sage-prompt-chip { font-family:'Josefin Sans',sans-serif; padding:6px 12px; border-radius:100px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); font-size:10px; color:rgba(255,255,255,.5); cursor:pointer; transition:all .2s; letter-spacing:.3px; }
+.sage-prompt-chip:hover { background:rgba(122,158,126,.15); color:var(--sage); border-color:var(--sage); }
+
+/* ====== ENTERPRISE / PROVIDER ====== */
+.enterprise-section { background:linear-gradient(165deg, #2A2421 0%, #3A3330 30%, #4A4340 70%, #2A2421 100%); position:relative; overflow:hidden; }
+.enterprise-section::before { content:''; position:absolute; inset:0; background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C4A088' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+.enterprise-orb { position:absolute; border-radius:50%; pointer-events:none; }
+.enterprise-orb-1 { top:-20%; right:-10%; width:50vw; height:50vw; background:radial-gradient(circle, rgba(196,160,136,.08) 0%, transparent 70%); }
+.enterprise-orb-2 { bottom:-20%; left:-10%; width:40vw; height:40vw; background:radial-gradient(circle, rgba(196,160,136,.04) 0%, transparent 70%); }
+.ent-inner { max-width:1140px; margin:0 auto; padding:120px 28px; position:relative; z-index:1; }
+.ent-header { text-align:center; margin-bottom:72px; }
+.ent-title { font-size:48px; font-weight:500; color:#fff; line-height:1.12; margin:16px 0 20px; }
+.ent-title em { font-style:italic; font-weight:300; color:var(--gold); }
+.ent-subtitle { font-family:'Josefin Sans',sans-serif; font-size:16px; font-weight:300; color:rgba(255,255,255,.8); max-width:620px; margin:0 auto; line-height:1.8; letter-spacing:.3px; }
+
+/* Challenge cards */
+.challenge-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:80px; }
+.challenge-card { background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.06); border-radius:4px; padding:28px 22px; transition:all .3s; }
+.challenge-card:hover { background:rgba(255,255,255,.07); transform:translateY(-2px); }
+.challenge-icon { font-size:28px; margin-bottom:14px; }
+.challenge-title { font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:600; color:#fff; margin-bottom:8px; }
+.challenge-desc { font-family:'Josefin Sans',sans-serif; font-size:13px; font-weight:300; color:rgba(255,255,255,.75); line-height:1.8; letter-spacing:.2px; }
+
+/* Revenue table */
+.revenue-block { margin-bottom:80px; }
+.revenue-header { text-align:center; margin-bottom:40px; }
+.revenue-title { font-size:38px; font-weight:500; color:#fff; margin:12px 0; }
+.revenue-title em { font-style:italic; font-weight:300; color:var(--gold); }
+.revenue-table { width:100%; border-collapse:separate; border-spacing:0; background:rgba(255,255,255,.03); border-radius:4px; overflow:hidden; border:1px solid rgba(255,255,255,.06); }
+.revenue-table thead th { font-family:'Josefin Sans',sans-serif; font-size:11px; font-weight:500; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.7); padding:18px 22px; text-align:left; border-bottom:1px solid rgba(255,255,255,.06); background:rgba(255,255,255,.02); }
+.revenue-table tbody td { font-family:'Josefin Sans',sans-serif; font-size:15px; font-weight:300; color:rgba(255,255,255,.75); padding:18px 22px; border-bottom:1px solid rgba(255,255,255,.04); letter-spacing:.2px; }
+.revenue-table tbody tr:last-child td { border-bottom:none; }
+.revenue-table tbody tr:hover { background:rgba(255,255,255,.02); }
+.revenue-table .code-name { font-weight:500; color:#fff; font-size:16px; }
+.revenue-table .est-value { font-family:'Cormorant Garamond',serif; font-weight:600; color:var(--gold); font-size:18px; }
+.revenue-total { display:flex; align-items:center; justify-content:center; gap:12px; margin-top:20px; padding:20px; background:linear-gradient(135deg, rgba(201,168,76,.08), rgba(201,168,76,.04)); border:1px solid rgba(201,168,76,.15); border-radius:4px; }
+.revenue-total-label { font-family:'Josefin Sans',sans-serif; font-size:12px; font-weight:400; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.7); }
+.revenue-total-num { font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:600; color:var(--gold); }
+
+/* ROI Calculator */
+.roi-calc-block { margin-bottom:80px; }
+.roi-calc { background:rgba(243,236,230,.95); border:1px solid rgba(196,160,136,.2); border-radius:4px; padding:48px; position:relative; overflow:hidden; }
+.roi-calc::before { content:''; position:absolute; top:0; right:0; width:40%; height:100%; background:linear-gradient(135deg, rgba(196,160,136,.06), transparent); pointer-events:none; }
+.roi-calc-header { text-align:center; margin-bottom:40px; position:relative; }
+.roi-calc-title { font-size:32px; font-weight:500; color:var(--espresso); margin:12px 0 8px; }
+.roi-calc-title em { font-style:italic; font-weight:300; color:var(--rose-dark); }
+.roi-calc-sub { font-family:'Josefin Sans',sans-serif; font-size:13px; font-weight:300; color:var(--brown); letter-spacing:.3px; }
+.roi-inputs { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-bottom:40px; position:relative; }
+.roi-input-group { display:flex; flex-direction:column; gap:8px; }
+.roi-input-label { font-family:'Josefin Sans',sans-serif; font-size:10px; font-weight:500; letter-spacing:2px; text-transform:uppercase; color:var(--muted); }
+.roi-input { background:#fff; border:1px solid rgba(196,160,136,.25); border-radius:4px; padding:14px 16px; font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:500; color:var(--espresso); outline:none; width:100%; transition:border-color .2s; }
+.roi-input:focus { border-color:var(--rose); }
+.roi-input::placeholder { color:var(--taupe); }
+.roi-divider { height:1px; background:linear-gradient(90deg, transparent, rgba(196,160,136,.25), transparent); margin-bottom:40px; }
+.roi-results { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:32px; }
+.roi-result-card { background:#fff; border:1px solid rgba(196,160,136,.15); border-radius:4px; padding:24px 18px; text-align:center; transition:all .3s; }
+.roi-result-card.highlight { background:#fff; border-color:rgba(196,160,136,.15); }
+.roi-result-num { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:600; line-height:1; margin-bottom:6px; }
+.roi-result-label { font-family:'Josefin Sans',sans-serif; font-size:9px; font-weight:400; letter-spacing:2px; text-transform:uppercase; color:var(--muted); }
+.roi-result-delta { font-family:'Josefin Sans',sans-serif; font-size:11px; font-weight:500; color:var(--sage); margin-top:6px; }
+.roi-bar-wrap { margin-bottom:32px; }
+.roi-bar-label { font-family:'Josefin Sans',sans-serif; display:flex; justify-content:space-between; font-size:11px; color:var(--brown); letter-spacing:.5px; margin-bottom:8px; }
+.roi-bar-bg { height:10px; background:rgba(196,160,136,.12); border-radius:100px; overflow:hidden; position:relative; }
+.roi-bar-fill { height:100%; border-radius:100px; transition:width .8s cubic-bezier(.4,0,.2,1); }
+.roi-bar-fill.cost { background:linear-gradient(90deg, var(--coral), #E09B60); }
+.roi-bar-fill.revenue { background:linear-gradient(90deg, var(--sage), var(--gold)); }
+
+/* Disclaimer */
+.roi-disclaimer { font-family:'Josefin Sans',sans-serif; font-size:10px; font-weight:300; color:var(--muted); line-height:1.9; letter-spacing:.2px; padding:20px; background:rgba(58,51,48,.04); border-radius:4px; border:1px solid rgba(196,160,136,.12); }
+.roi-disclaimer strong { font-weight:500; color:var(--brown); }
+
+/* Stakeholder value */
+.stakeholder-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:56px; }
+.stakeholder-card { background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.06); border-radius:4px; padding:30px 24px; transition:all .3s; }
+.stakeholder-card:hover { background:rgba(255,255,255,.07); transform:translateY(-2px); }
+.stakeholder-role { font-family:'Josefin Sans',sans-serif; font-size:10px; font-weight:500; letter-spacing:2.5px; text-transform:uppercase; margin-bottom:14px; }
+.stakeholder-list { list-style:none; display:flex; flex-direction:column; gap:10px; }
+.stakeholder-list li { font-family:'Josefin Sans',sans-serif; font-size:13px; font-weight:300; color:rgba(255,255,255,.85); letter-spacing:.2px; display:flex; align-items:flex-start; gap:10px; line-height:1.6; }
+.stakeholder-list li::before { content:'✓'; color:var(--sage); font-weight:600; flex-shrink:0; margin-top:1px; }
+
+/* ====== PRICING ====== */
+.pricing-section { background:linear-gradient(180deg, var(--cream) 0%, var(--beige) 100%); }
+.pricing-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; max-width:1020px; margin:56px auto 0; align-items:start; }
+.pricing-card { border-radius:4px; padding:36px 26px; position:relative; overflow:hidden; transition:transform .35s cubic-bezier(.4,0,.2,1); }
+.pricing-card:hover { transform:translateY(-4px); }
+.pricing-free { background:#fff; border:1px solid var(--border); }
+.pricing-premium { background:var(--espresso); box-shadow:0 24px 60px rgba(58,51,48,.12); transform:scale(1.03); }
+.pricing-premium:hover { transform:scale(1.03) translateY(-4px); }
+.pricing-enterprise { border:1.5px solid rgba(196,160,136,.2); background:linear-gradient(160deg,#faf8f6,#fff); }
+.pricing-ribbon { position:absolute; top:14px; right:-24px; background:var(--gold); color:#fff; font-family:'Josefin Sans',sans-serif; font-size:8px; font-weight:400; padding:4px 36px; transform:rotate(35deg); letter-spacing:2px; text-transform:uppercase; }
+.pricing-name { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; margin-bottom:8px; }
+.pricing-price-row { display:flex; align-items:baseline; gap:4px; margin-bottom:20px; }
+.pricing-price-num { font-family:'Cormorant Garamond',serif; font-size:42px; font-weight:600; }
+.pricing-price-per { font-family:'Josefin Sans',sans-serif; font-size:12px; font-weight:300; }
+.pricing-features { display:flex; flex-direction:column; gap:10px; margin-bottom:24px; }
+.pricing-feature { display:flex; align-items:center; gap:10px; }
+.pricing-feature-check { font-size:12px; flex-shrink:0; }
+.pricing-feature-text { font-family:'Josefin Sans',sans-serif; font-size:13px; font-weight:300; text-align:left; letter-spacing:.2px; }
+
+/* ====== TESTIMONIALS ====== */
+.testimonials-section { background:var(--beige); }
+.testimonials-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:56px; }
+.testimonial-card { background:#fff; border-radius:4px; padding:30px 24px; border:1px solid var(--border); text-align:left; transition:transform .3s; }
+.testimonial-card:hover { transform:translateY(-3px); }
+.testimonial-stars { display:flex; gap:2px; margin-bottom:14px; }
+.testimonial-star { font-size:14px; color:var(--gold); }
+.testimonial-text { font-size:18px; font-style:italic; color:var(--espresso); line-height:1.7; margin-bottom:20px; }
+.testimonial-name { font-family:'Josefin Sans',sans-serif; font-size:11px; font-weight:400; color:var(--espresso); letter-spacing:1px; }
+.testimonial-loc { font-family:'Josefin Sans',sans-serif; font-size:10px; color:var(--muted); letter-spacing:.5px; }
+
+/* Provider Testimonial */
+.provider-testimonials { margin-top:16px; }
+.prov-testimonial { background:linear-gradient(135deg,#f8fafb,#fff); border:1.5px solid rgba(196,160,136,.15); border-radius:4px; padding:30px 24px; }
+.prov-testimonial .testimonial-text { color:var(--rose-dark); }
+
+/* ====== HOW IT WORKS ====== */
+.how-section { background:linear-gradient(180deg, var(--beige) 0%, var(--cream) 100%); }
+.steps-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:16px; margin-top:56px; text-align:center; }
+.step-card { padding:20px 12px; }
+.step-num { font-family:'Cormorant Garamond',serif; font-size:48px; font-weight:300; color:var(--taupe); line-height:1; margin-bottom:6px; }
+.step-icon { font-size:24px; margin-bottom:12px; }
+.step-title { font-family:'Cormorant Garamond',serif; font-size:17px; font-weight:600; color:var(--espresso); margin-bottom:8px; }
+.step-desc { font-family:'Josefin Sans',sans-serif; font-size:15px; font-weight:300; color:var(--brown); line-height:1.8; letter-spacing:.2px; }
+.step-arrow { display:flex; align-items:center; justify-content:center; color:var(--taupe); font-size:20px; padding-top:40px; }
+
+/* ====== FAQ ====== */
+.faq-section { background:linear-gradient(180deg, var(--cream) 0%, var(--beige) 100%); }
+.faq-item { background:#fff; border-radius:4px; margin-bottom:8px; overflow:hidden; border:1px solid var(--border); transition:border .3s; }
+.faq-item.active { border-color:var(--rose); }
+.faq-question { width:100%; padding:20px 24px; background:none; border:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:500; color:var(--espresso); text-align:left; gap:16px; }
+.faq-toggle { font-size:20px; color:var(--rose); transition:transform .3s; flex-shrink:0; line-height:1; }
+.faq-item.active .faq-toggle { transform:rotate(45deg); }
+.faq-answer { max-height:0; overflow:hidden; transition:max-height .4s ease; }
+.faq-item.active .faq-answer { max-height:800px; }
+.faq-answer-inner { padding:0 24px 20px; font-family:'Josefin Sans',sans-serif; font-size:14px; font-weight:300; color:var(--muted); line-height:1.9; letter-spacing:.2px; }
+
+/* ====== FINAL CTA ====== */
+.cta-final { background:linear-gradient(135deg, var(--espresso), var(--espresso-light)); position:relative; overflow:hidden; text-align:center; }
+.cta-glow { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:50vw; height:50vw; border-radius:50%; background:radial-gradient(circle, rgba(196,160,136,.06) 0%, transparent 70%); }
+.cta-inner { max-width:660px; margin:0 auto; padding:130px 28px; position:relative; z-index:1; }
+.cta-title { font-size:48px; font-weight:500; color:#fff; line-height:1.12; margin-bottom:18px; }
+.cta-title em { font-style:italic; font-weight:300; color:var(--rose); }
+.cta-body { font-family:'Josefin Sans',sans-serif; font-size:15px; font-weight:300; line-height:1.85; color:rgba(255,255,255,.8); max-width:480px; margin:0 auto 40px; letter-spacing:.3px; }
+.cta-note { font-family:'Josefin Sans',sans-serif; font-size:9px; color:rgba(255,255,255,.55); margin-top:24px; letter-spacing:2.5px; text-transform:uppercase; }
+
+/* ====== FOOTER ====== */
+.footer { background:var(--cream); padding:64px 28px 40px; border-top:1px solid var(--border); }
+.footer-inner { max-width:1140px; margin:0 auto; display:flex; justify-content:space-between; flex-wrap:wrap; gap:40px; }
+.footer-brand { flex:1 1 240px; }
+.footer-brand-top { display:flex; align-items:center; gap:10px; margin-bottom:16px; }
+.footer-brand-icon { width:28px; height:28px; background:linear-gradient(135deg,var(--rose),var(--sage)); border-radius:7px; display:flex; align-items:center; justify-content:center; font-size:14px; }
+.footer-brand-name { font-family:'Cormorant Garamond',serif; font-size:30px; font-weight:700; color:var(--espresso); letter-spacing:.3px; }
+.footer-brand-desc { font-family:'Josefin Sans',sans-serif; font-size:12px; font-weight:300; color:var(--brown); line-height:1.8; max-width:260px; letter-spacing:.3px; opacity:.6; }
+.footer-col-title { font-family:'Josefin Sans',sans-serif; font-size:10px; font-weight:500; color:var(--espresso); letter-spacing:3px; text-transform:uppercase; margin-bottom:16px; }
+.footer-link { font-family:'Josefin Sans',sans-serif; font-size:14px; font-weight:300; color:var(--brown); margin-bottom:10px; cursor:pointer; transition:color .3s; display:block; letter-spacing:.3px; }
+.footer-link:hover { color:var(--gold); }
+.footer-bottom { max-width:1140px; margin:40px auto 0; padding-top:24px; border-top:1px solid var(--border); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; }
+.footer-copy { font-family:'Josefin Sans',sans-serif; font-size:11px; color:var(--muted); letter-spacing:1px; }
+
+/* ====== RESPONSIVE ====== */
+@media (max-width:1024px) {
+  .features-grid { grid-template-columns:repeat(2,1fr); }
+  .challenge-grid, .stakeholder-grid { grid-template-columns:repeat(2,1fr); }
+  .roi-results { grid-template-columns:repeat(2,1fr); }
+  .roi-inputs { grid-template-columns:repeat(2,1fr); }
+  .steps-grid { grid-template-columns:repeat(3,1fr); }
+  .step-arrow { display:none; }
+}
+@media (max-width:900px) {
+  .hero-inner { flex-direction:column; text-align:center; gap:48px; padding-top:120px; }
+  .hero-content { max-width:100%; }
+  .hero-title { font-size:38px; }
+  .hero-body { margin:0 auto 30px; }
+  .hero-buttons { justify-content:center; }
+  .hero-trust { justify-content:center; }
+  .nav-links a:not(.nav-cta):not(.btn) { display:none; }
+  .mobile-toggle { display:block; }
+  .stats-grid { grid-template-columns:repeat(2,1fr); }
+  .sage-inner { flex-direction:column; text-align:center; gap:48px; }
+  .sage-content { max-width:100%; }
+  .sage-chat { width:100%; max-width:420px; }
+  .features-grid { grid-template-columns:1fr; }
+  .challenge-grid, .stakeholder-grid { grid-template-columns:1fr; }
+  .pricing-grid { grid-template-columns:1fr; max-width:400px; }
+  .pricing-premium { transform:scale(1); }
+  .pricing-premium:hover { transform:translateY(-4px); }
+  .testimonials-grid { grid-template-columns:1fr; }
+  .roi-inputs { grid-template-columns:1fr; }
+  .roi-results { grid-template-columns:repeat(2,1fr); }
+  .roi-calc { padding:28px 20px; }
+  .steps-grid { grid-template-columns:repeat(2,1fr); }
+  .ent-title { font-size:36px; }
+  .cta-title { font-size:36px; }
+  .footer-inner { text-align:center; }
+  .footer-bottom { justify-content:center; text-align:center; }
+}
+@media (max-width:600px) {
+  .hero-title { font-size:32px; }
+  .stat-num { font-size:30px; }
+  .sage-title { font-size:32px; }
+  .section-title { font-size:32px; }
+  .roi-results { grid-template-columns:1fr; }
+  .steps-grid { grid-template-columns:1fr; }
+  .revenue-table { font-size:13px; }
+  .revenue-table thead th, .revenue-table tbody td { padding:14px 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-brand">
+    <div class="nav-logo-text">VictoryAI</div>
+  </div>
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#sage">Sage AI</a>
+    <a href="#enterprise">Providers</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+    <a href="#download" class="btn btn-primary nav-cta" style="padding:10px 28px;">Get Started Free</a>
+    <button class="mobile-toggle">☰</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-orb hero-orb-3"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-petal"></div>
+  <div class="hero-petal"></div>
+  <div class="hero-petal"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-eyebrow">OUD Recovery Companion + Outcomes Analytics Platform</div>
+      <h1 class="hero-title">OUD recovery deserves<br><em>intelligence.</em></h1>
+      <p class="hero-body">Meet Sage — your 24/7 AI recovery companion built for Opioid Use Disorder. MAT medication tracking, COWS withdrawal monitoring, craving & pain management, family-powered gamification, and a real-time provider outcomes dashboard — all HIPAA-compliant.</p>
+      <p class="hero-body" style="margin-top:-20px;">For OUD treatment providers, our outcomes analytics platform delivers AI predictive analytics, EMR-ready clinical data, and measurable patient outcomes. VictoryAI collects the data. Your EMR handles the billing.</p>
+      <div class="hero-buttons">
+        <a href="#download" class="btn btn-primary btn-lg">Start Free →</a>
+        <a href="#enterprise" class="btn btn-outline btn-lg">For Providers →</a>
+      </div>
+      <div class="hero-trust">
+        <div class="hero-trust-item"><span class="hero-trust-icon">🔒</span><span class="hero-trust-text ui">HIPAA Compliant</span></div>
+        <div class="hero-trust-item"><span class="hero-trust-icon">🌐</span><span class="hero-trust-text ui">10+ Languages</span></div>
+        <div class="hero-trust-item"><span class="hero-trust-icon">📱</span><span class="hero-trust-text ui">iOS & Android</span></div>
+      </div>
+    </div>
+    <div class="hero-phone-wrap">
+      <div class="phone">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="phone-sober">
+            <div class="ui" style="font-size:8px;color:var(--rose-light);letter-spacing:3.5px;text-transform:uppercase;font-weight:200;margin-bottom:4px">Your Recovery Journey</div>
+            <div class="phone-sober-num">47</div>
+            <div class="ui" style="font-size:10px;color:var(--rose);font-weight:300;letter-spacing:1px;">days clean</div>
+            <div style="display:flex;justify-content:center;gap:18px;margin-top:10px;position:relative;z-index:1">
+              <div><div class="ui" style="font-size:12px;font-weight:500;color:var(--gold)">100%</div><div class="ui" style="font-size:7px;color:rgba(255,255,255,.3);letter-spacing:1px;text-transform:uppercase">MAT</div></div>
+              <div><div class="ui" style="font-size:12px;font-weight:500;color:var(--gold)">3/10</div><div class="ui" style="font-size:7px;color:rgba(255,255,255,.3);letter-spacing:1px;text-transform:uppercase">Craving</div></div>
+              <div><div class="ui" style="font-size:12px;font-weight:500;color:var(--gold)">2,340</div><div class="ui" style="font-size:7px;color:rgba(255,255,255,.3);letter-spacing:1px;text-transform:uppercase">XP</div></div>
+            </div>
+          </div>
+          <div class="phone-btns">
+            <div class="phone-btn-urge"><span class="ui" style="font-size:9px;color:#fff;font-weight:400;letter-spacing:1.5px;text-transform:uppercase">Urge Support</span></div>
+            <div class="phone-btn-relapse"><span class="ui" style="font-size:9px;color:#fff;font-weight:400;letter-spacing:1.5px;text-transform:uppercase">SOS Crisis</span></div>
+          </div>
+          <div class="phone-card" style="border-left:3px solid var(--sage);background:var(--sage-light)">
+            <div style="display:flex;align-items:center;gap:6px"><span class="ui" style="font-size:9px;color:var(--espresso);letter-spacing:.5px;font-weight:500">Suboxone 8mg — Due 8 AM</span><span class="ui" style="font-size:7px;color:var(--gold);background:var(--gold-pale);padding:2px 6px;border-radius:2px;letter-spacing:.5px">+50 XP</span></div>
+          </div>
+          <div class="phone-card" style="border-left:3px solid var(--gold);background:var(--gold-pale)">
+            <div style="display:flex;align-items:center;gap:6px;justify-content:space-between"><span class="ui" style="font-size:9px;color:var(--espresso);letter-spacing:.5px;font-weight:500">Mom's Reward: Dinner at 60 days</span><span class="ui" style="font-size:8px;color:var(--gold);font-weight:500">78%</span></div>
+          </div>
+          <div style="display:flex;gap:5px;margin-bottom:6px">
+            <div class="phone-card" style="flex:1;margin-bottom:0;display:flex;align-items:center;gap:6px;padding:8px 10px"><div class="ui" style="font-size:8px;color:var(--espresso);letter-spacing:.3px;font-weight:500">COWS: 3</div></div>
+            <div class="phone-card" style="flex:1;margin-bottom:0;display:flex;align-items:center;gap:6px;padding:8px 10px"><div class="ui" style="font-size:8px;color:var(--espresso);letter-spacing:.3px;font-weight:500">Pain: 4/10</div></div>
+          </div>
+          <div class="phone-card" style="border:none;background:linear-gradient(135deg,var(--sage),var(--sage-dark));display:flex;align-items:center;gap:8px;padding:12px;border-radius:4px">
+            <div style="width:28px;height:28px;border-radius:8px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center"><span class="ui" style="font-size:8px;color:#fff;font-weight:600">AI</span></div>
+            <div><div class="ui" style="font-size:10px;color:#fff;letter-spacing:.5px">Chat with Sage</div><div class="ui" style="font-size:7px;color:rgba(255,255,255,.55)">OUD recovery companion</div></div>
+          </div>
+          <div class="phone-coach-card" style="border-radius:4px">
+            <div style="width:28px;height:28px;border-radius:8px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center"><span class="ui" style="font-size:8px;color:#fff;font-weight:600">Nx</span></div>
+            <div><div class="ui" style="font-size:10px;color:#fff;letter-spacing:.5px">Narcan Kit: 2 doses</div><div class="ui" style="font-size:7px;color:rgba(255,255,255,.55)">Expires Jun 2027</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<section class="stats-bar">
+  <div class="stats-grid">
+    <div class="reveal"><div class="stat-num">92%</div><div class="stat-label">MAT Adherence Rate</div></div>
+    <div class="reveal reveal-d1"><div class="stat-num">4.2×</div><div class="stat-label">Retention with Family Rewards</div></div>
+    <div class="reveal reveal-d2"><div class="stat-num">34%</div><div class="stat-label">Lower Relapse with Gamification</div></div>
+    <div class="reveal reveal-d3"><div class="stat-num">87%</div><div class="stat-label">Daily App Engagement</div></div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features-section section" id="features">
+  <div class="container text-center">
+    <span class="tag tag-rose">Platform</span>
+    <h2 class="section-title">Purpose-built for <em>OUD recovery.</em></h2>
+    <p style="font-family:'Josefin Sans',sans-serif;font-size:15px;font-weight:300;color:var(--brown);max-width:620px;margin:16px auto 0;line-height:1.85;letter-spacing:.2px;">Not general addiction software. Every feature is engineered to maximize daily engagement — because engagement is what predicts retention, recovery, and reimbursable clinical data.</p>
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <div class="feature-icon" style="background:var(--sage-light)">Rx</div>
+        <div class="feature-title">MAT + Drug Screen Tracking</div>
+        <div class="feature-desc">Suboxone, Methadone, Naltrexone adherence with dose confirmations, side effect logging, and pharmacy refills. UDS compliance tracking supports G0480–G0483 toxicology documentation. Every logged dose earns XP.</div>
+      </div>
+      <div class="feature-card reveal reveal-d1">
+        <div class="feature-icon" style="background:var(--sage-light)">AI</div>
+        <div class="feature-title">Sage AI Companion</div>
+        <div class="feature-desc">Your 24/7 OUD-trained recovery companion. Evidence-based coping tools, craving intervention, pain-craving correlation support, MAT questions, and compassionate check-ins in 10+ languages.</div>
+      </div>
+      <div class="feature-card reveal reveal-d2">
+        <div class="feature-icon" style="background:var(--gold-pale)">CW</div>
+        <div class="feature-title">COWS + TCM Transitions</div>
+        <div class="feature-desc">Clinical Opiate Withdrawal Scale monitoring with real-time provider sync. Post-discharge transition tracking captures 99495/99496 TCM billing data ($201–$273 per event) and flags drop-off risk.</div>
+      </div>
+      <div class="feature-card reveal reveal-d3">
+        <div class="feature-icon" style="background:var(--purple-pale)">CP</div>
+        <div class="feature-title">CCM/PCM Care Plans + Pain Mgmt</div>
+        <div class="feature-desc">Auto-tracks between-visit engagement time for CCM (99490, $62/mo) and PCM (99424, $82/mo). Pain-craving correlation AI surfaces non-opioid intervention opportunities before cravings escalate.</div>
+      </div>
+      <div class="feature-card reveal reveal-d4">
+        <div class="feature-icon" style="background:var(--gold-pale)">FR</div>
+        <div class="feature-title">Family Reward Board</div>
+        <div class="feature-desc">Family, friends, and sponsors pledge real rewards — gift cards, dinners, experiences — tied to recovery milestones. Patients with active family rewards show 4.2× better retention and 34% lower relapse rates.</div>
+      </div>
+      <div class="feature-card reveal reveal-d5">
+        <div class="feature-icon" style="background:var(--coral-pale)">🔥</div>
+        <div class="feature-title">Recovery Flame & Streak Shield</div>
+        <div class="feature-desc">Visual streak flames grow with each consecutive day of MAT adherence and check-ins. Streak Shield protects progress during crisis days — preventing streak breaks that correlate with 12× higher drop-off risk.</div>
+      </div>
+      <div class="feature-card reveal reveal-d6">
+        <div class="feature-icon" style="background:var(--gold-pale)">✨</div>
+        <div class="feature-title">Mystery XP & Daily Quests</div>
+        <div class="feature-desc">Variable-reward Mystery XP multipliers (up to 5×) drive 22% higher daily return rates. Daily Quests generate 3× more clinical data points per patient — feeding RTM, BHI, and CoCM billable thresholds automatically.</div>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon" style="background:var(--purple-pale)">🤝</div>
+        <div class="feature-title">Recovery Rings (Peer Accountability)</div>
+        <div class="feature-desc">Small-group accountability circles with anonymous kudos, shared milestones, and peer check-ins. Ring members show +18% engagement vs. solo users and 28% lower craving scores through peer support.</div>
+      </div>
+      <div class="feature-card reveal reveal-d1">
+        <div class="feature-icon" style="background:var(--purple-pale)">GT</div>
+        <div class="feature-title">Group Therapy + CBT Workbook</div>
+        <div class="feature-desc">Group session check-in documents H0005/90853 attendance (~$27–45/session). Evidence-based CBT modules (Understanding OUD, Trigger Mapping, Pain Without Opioids) with completion tracking for H2019.</div>
+      </div>
+      <div class="feature-card reveal reveal-d2">
+        <div class="feature-icon" style="background:var(--purple-pale)">VJ</div>
+        <div class="feature-title">Voice Journal & Sentiment AI</div>
+        <div class="feature-desc">Voice journaling with NLP sentiment analysis, daily mood/craving/pain check-ins, sleep tracking, and trigger mapping. Detects mood decline 5–7 days before relapse events — surfaced on the provider dashboard.</div>
+      </div>
+      <div class="feature-card reveal reveal-d3">
+        <div class="feature-icon" style="background:var(--coral-pale)">Nx</div>
+        <div class="feature-title">Narcan Hub & Safety</div>
+        <div class="feature-desc">Narcan kit tracking, dose inventory, expiration alerts, OD response plan, family training status, fentanyl safety education, and nearby Narcan locator. Family training completion is gamified into reward milestones.</div>
+      </div>
+      <div class="feature-card reveal reveal-d4">
+        <div class="feature-icon" style="background:var(--rose-pale)">DB</div>
+        <div class="feature-title">AI Predictive Provider Dashboard</div>
+        <div class="feature-desc">Real-time analytics with AI risk scoring, relapse prediction, engagement metrics, gamification impact KPIs, and EMR-ready data export. Every gamified action is tracked, analyzed, and reported to providers.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SAGE AI DEMO -->
+<section class="sage-section section" id="sage">
+  <div class="sage-glow"></div>
+  <div class="sage-glow-2"></div>
+  <div class="sage-inner">
+    <div class="sage-content reveal">
+      <span class="tag tag-sage" style="background:rgba(122,158,126,.15);color:#fff;">AI Companion</span>
+      <h2 class="sage-title">Meet Sage.<br><em>Always here. Never judging.</em></h2>
+      <p class="sage-body">An AI companion trained for opioid recovery, available 24/7 in 10+ languages. Sage helps you manage cravings, navigate pain without opioids, understand your MAT, and build coping skills — with the warmth of a friend and the rigor of evidence-based therapy.</p>
+      <div class="sage-checks">
+        <div class="sage-check"><div class="sage-check-dot">✓</div><div class="sage-check-text">OUD-specific craving & pain intervention</div></div>
+        <div class="sage-check"><div class="sage-check-dot">✓</div><div class="sage-check-text">MAT medication support & education</div></div>
+        <div class="sage-check"><div class="sage-check-dot">✓</div><div class="sage-check-text">Non-opioid pain management coaching</div></div>
+        <div class="sage-check"><div class="sage-check-dot">✓</div><div class="sage-check-text">Smart nudges tied to family rewards</div></div>
+        <div class="sage-check"><div class="sage-check-dot">✓</div><div class="sage-check-text">24/7 availability in 10+ languages</div></div>
+      </div>
+      <a href="#download" class="btn btn-forest">Try Sage Free →</a>
+    </div>
+    <div class="sage-chat reveal reveal-d2">
+      <div class="sage-chat-header">
+        <div class="sage-avatar">🌿</div>
+        <div>
+          <div class="sage-chat-name">Sage</div>
+          <div class="sage-chat-status">Online — Try me live</div>
+        </div>
+      </div>
+      <div class="sage-chat-area" id="sage-chat-area">
+        <div class="sage-msg sage-msg-bot">Hi, I'm Sage — your OUD recovery companion. I'm here whenever you need to talk, manage a craving, work through pain, or check in about your MAT. How are you feeling today?</div>
+      </div>
+      <div class="sage-prompts" id="sage-prompts">
+        <div class="sage-prompt-chip" onclick="useSagePrompt(this)">My pain is triggering cravings</div>
+        <div class="sage-prompt-chip" onclick="useSagePrompt(this)">Questions about my Suboxone</div>
+        <div class="sage-prompt-chip" onclick="useSagePrompt(this)">Help me with a breathing exercise</div>
+      </div>
+      <div class="sage-chat-input">
+        <input type="text" class="sage-input" id="sage-demo-input" placeholder="Type a message to Sage…">
+        <button class="sage-send" id="sage-demo-send">→</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENTERPRISE / PROVIDER SECTION -->
+<section class="enterprise-section" id="enterprise">
+  <div class="enterprise-orb enterprise-orb-1"></div>
+  <div class="enterprise-orb enterprise-orb-2"></div>
+  <div class="ent-inner">
+    <!-- Header -->
+    <div class="ent-header reveal">
+      <span class="tag tag-gold">For OUD Treatment Providers</span>
+      <h2 class="ent-title">Turn OUD patient data into<br><em>outcomes & revenue.</em></h2>
+      <p class="ent-subtitle">OUD treatment programs face growing pressure to demonstrate measurable outcomes while maximizing reimbursable services. VictoryAI collects the clinical data your EMR needs — MAT adherence, COWS scores, craving patterns, pain tracking — and makes it billable through your existing workflows.</p>
+    </div>
+
+    <!-- The Challenge -->
+    <div class="challenge-grid">
+      <div class="challenge-card reveal">
+        <div class="challenge-icon">📊</div>
+        <div class="challenge-title">OUD Outcomes Are Required</div>
+        <div class="challenge-desc">Payers and regulators require measurable OUD patient outcomes. Programs without data-backed MAT adherence, retention rates, and clinical improvement metrics risk losing contracts.</div>
+      </div>
+      <div class="challenge-card reveal reveal-d1">
+        <div class="challenge-icon">💰</div>
+        <div class="challenge-title">Billable Data Goes Uncaptured</div>
+        <div class="challenge-desc">Without digital engagement data, RTM, DTx, CoCM, and SDOH codes go unbilled. VictoryAI captures the data your EMR needs to document code eligibility automatically.</div>
+      </div>
+      <div class="challenge-card reveal reveal-d2">
+        <div class="challenge-icon">🧠</div>
+        <div class="challenge-title">Relapse Is Predictable</div>
+        <div class="challenge-desc">AI can detect relapse risk 5-7 days before it happens — through voice sentiment, engagement drops, pain-craving correlation, and MAT non-adherence patterns. Most programs catch it after the fact.</div>
+      </div>
+    </div>
+
+    <!-- Revenue Opportunity Table -->
+    <div class="revenue-block reveal">
+      <div class="revenue-header">
+        <span class="tag tag-gold">EMR-Ready Data</span>
+        <h3 class="revenue-title">Estimated billable value <em>per OUD patient, per month</em></h3>
+      </div>
+      <table class="revenue-table">
+        <thead>
+          <tr>
+            <th>Billing Code</th>
+            <th>Description</th>
+            <th>How VictoryAI Captures Data</th>
+            <th>Est. $/Pt/Mo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="code-name">RTM (98975-81)</td>
+            <td>Remote Therapeutic Monitoring</td>
+            <td>MAT tracking, daily check-ins, craving/pain logging auto-qualify 16-day threshold</td>
+            <td class="est-value">$150–200</td>
+          </tr>
+          <tr>
+            <td class="code-name">H2019</td>
+            <td>Digital CBT Sessions</td>
+            <td>CBT4SUD module completion tracked per 15-min session</td>
+            <td class="est-value">$168–252</td>
+          </tr>
+          <tr>
+            <td class="code-name">G2213/G2214</td>
+            <td>OUD Treatment Initiation/Continuation</td>
+            <td>MAT engagement + ongoing treatment adherence documentation</td>
+            <td class="est-value">$48–61</td>
+          </tr>
+          <tr>
+            <td class="code-name">99492/93 (CoCM)</td>
+            <td>Collaborative Care Management</td>
+            <td>SDOH screening data + BH care plan documentation</td>
+            <td class="est-value">$75–175</td>
+          </tr>
+          <tr>
+            <td class="code-name">99484 (BHI)</td>
+            <td>Behavioral Health Integration</td>
+            <td>Medication adherence + mood/craving data feeds compliance documentation</td>
+            <td class="est-value">$49</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="revenue-total">
+        <span class="revenue-total-label">Total Estimated Billable Data Per Patient</span>
+        <span class="revenue-total-num">$490–737</span>
+        <span class="revenue-total-label">per patient / month</span>
+      </div>
+    </div>
+
+    <!-- ROI CALCULATOR -->
+    <div class="roi-calc-block reveal">
+      <div class="roi-calc">
+        <div class="roi-calc-header">
+          <span class="tag tag-gold">Interactive</span>
+          <h3 class="roi-calc-title">ROI Calculator for <em>Your OUD Program</em></h3>
+          <p class="roi-calc-sub">Enter your OUD patient counts to see the estimated EMR-billable data VictoryAI captures.</p>
+        </div>
+        <div class="roi-inputs">
+          <div class="roi-input-group">
+            <label class="roi-input-label">OUD IOP Patients</label>
+            <input type="number" class="roi-input" id="roi-iop" value="50" min="0" oninput="calcROI()">
+          </div>
+          <div class="roi-input-group">
+            <label class="roi-input-label">OUD Residential / PHP</label>
+            <input type="number" class="roi-input" id="roi-res" value="24" min="0" oninput="calcROI()">
+          </div>
+          <div class="roi-input-group">
+            <label class="roi-input-label">MAT-Only / Outpatient</label>
+            <input type="number" class="roi-input" id="roi-detox" value="30" min="0" oninput="calcROI()">
+          </div>
+        </div>
+        <div class="roi-divider"></div>
+        <div class="roi-results" id="roi-results">
+          <div class="roi-result-card">
+            <div class="roi-result-num" style="color:var(--gold)" id="roi-monthly">$56,100</div>
+            <div class="roi-result-label">Monthly Billable Data</div>
+            <div class="roi-result-delta" id="roi-monthly-delta">↑ Captured for EMR</div>
+          </div>
+          <div class="roi-result-card">
+            <div class="roi-result-num" style="color:var(--espresso)" id="roi-annual">$673,200</div>
+            <div class="roi-result-label">Annual Impact</div>
+          </div>
+          <div class="roi-result-card">
+            <div class="roi-result-num" style="color:var(--sage)" id="roi-net">$539</div>
+            <div class="roi-result-label">Avg Per Patient / Month</div>
+            <div class="roi-result-delta" id="roi-net-label">Billable via EMR</div>
+          </div>
+          <div class="roi-result-card highlight">
+            <div class="roi-result-num" style="color:var(--gold)" id="roi-multiple">104</div>
+            <div class="roi-result-label">Total Patients</div>
+          </div>
+        </div>
+        <div class="roi-bar-wrap" style="margin-bottom:36px">
+          <div class="roi-bar-label"><span>Estimated Monthly EMR-Billable Data Captured</span><span id="roi-rev-label">~$56,100/mo</span></div>
+          <div class="roi-bar-bg"><div class="roi-bar-fill revenue" id="roi-rev-bar" style="width:100%"></div></div>
+        </div>
+        <div class="roi-disclaimer">
+          <strong>Important Disclaimers & References:</strong> All figures shown are estimates only and do not guarantee actual reimbursement or revenue. Actual billable amounts depend on payer contracts, patient eligibility, documentation compliance, and claims submission by your billing team. VictoryAI captures engagement data and exports it to your EMR — it does not submit claims or provide billing services. RTM codes (98975–98981) per CMS CY2024 PFS. H2019 per SAMHSA digital therapeutic guidelines. G2213/G2214 per CMS OUD treatment codes. CoCM codes (99492/93) and BHI (99484) per CMS behavioral health guidelines. Revenue estimates assume code stacking based on OUD patient engagement intensity. All claims must be submitted by a licensed billing professional through your EHR/Kipu. VictoryAI is not a medical device, billing service, or healthcare provider. Results may vary based on patient engagement, payer mix, and documentation practices.
+        </div>
+      </div>
+    </div>
+
+    <!-- Stakeholder Value -->
+    <div class="reveal">
+      <div style="text-align:center;margin-bottom:48px">
+        <span class="tag tag-teal">Stakeholder Value</span>
+        <h3 class="revenue-title" style="font-size:32px">Built for every leader <em>in OUD treatment</em></h3>
+      </div>
+      <div class="stakeholder-grid">
+        <div class="stakeholder-card">
+          <div class="stakeholder-role" style="color:var(--gold)">For the CEO</div>
+          <ul class="stakeholder-list">
+            <li>Differentiated OUD treatment positioning</li>
+            <li>Data-backed MAT & recovery outcomes</li>
+            <li>Family engagement as competitive advantage</li>
+            <li>EMR-integrated from day one</li>
+          </ul>
+        </div>
+        <div class="stakeholder-card">
+          <div class="stakeholder-role" style="color:var(--sage)">For the CFO</div>
+          <ul class="stakeholder-list">
+            <li>New RTM + DTx + CoCM code visibility</li>
+            <li>$490–737/pt/mo in EMR-billable data</li>
+            <li>AI-driven engagement maximizes RTM eligibility</li>
+            <li>No billing through platform — data only</li>
+          </ul>
+        </div>
+        <div class="stakeholder-card">
+          <div class="stakeholder-role" style="color:var(--coral)">For Clinical Directors</div>
+          <ul class="stakeholder-list">
+            <li>AI relapse prediction (5-7 day lead time)</li>
+            <li>Real-time MAT adherence & COWS monitoring</li>
+            <li>Pain-craving correlation analytics</li>
+            <li>Voice journal NLP sentiment analysis</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Enterprise CTA -->
+    <div style="text-align:center;margin-top:72px" class="reveal">
+      <div style="display:inline-block;padding:48px 64px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:4px">
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:500;color:#fff;margin-bottom:10px">Ready to see your ROI?</h3>
+        <p style="font-family:'Josefin Sans',sans-serif;font-size:14px;font-weight:300;color:rgba(255,255,255,.75);margin-bottom:24px;letter-spacing:.3px">Full platform access · Measurable outcomes from day one</p>
+        <a href="#" class="btn" style="background:var(--gold);color:#fff;box-shadow:0 6px 24px rgba(201,168,76,.2);font-size:12px;letter-spacing:2.5px;">Schedule a Demo →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section section" id="how">
+  <div class="container text-center">
+    <span class="tag tag-rose">How It Works</span>
+    <h2 class="section-title">From OUD data to <em>outcomes</em> in five steps</h2>
+    <div class="steps-grid">
+      <div class="step-card reveal">
+        <div class="step-num">1</div>
+        <div class="step-title">Patient Uses App</div>
+        <div class="step-desc">MAT logging, craving/pain tracking, COWS scores, CBT sessions, voice journal, family rewards — all XP-incentivized</div>
+      </div>
+      <div class="step-card reveal reveal-d1">
+        <div class="step-num">2</div>
+        <div class="step-title">AI Analyzes Data</div>
+        <div class="step-desc">Risk scores, relapse prediction, pain-craving correlation, sentiment analysis, code qualification</div>
+      </div>
+      <div class="step-card reveal reveal-d2">
+        <div class="step-num">3</div>
+        <div class="step-title">Provider Reviews</div>
+        <div class="step-desc">AI dashboard alerts, predictive risk flags, MAT adherence trends, session prep</div>
+      </div>
+      <div class="step-card reveal reveal-d3">
+        <div class="step-num">4</div>
+        <div class="step-title">Data Exports to EMR</div>
+        <div class="step-desc">Code-eligible engagement data, clinical documentation, auto-populated in Kipu/EHR</div>
+      </div>
+      <div class="step-card reveal reveal-d4">
+        <div class="step-num">5</div>
+        <div class="step-title">Provider Bills via EMR</div>
+        <div class="step-desc">Your billing team submits claims through existing EMR workflows. VictoryAI never handles billing.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section section" id="pricing">
+  <div class="container text-center">
+    <span class="tag tag-rose">Pricing</span>
+    <h2 class="section-title">Start free. <em>Go deeper.</em></h2>
+    <p style="font-family:'Josefin Sans',sans-serif;font-size:15px;font-weight:300;color:var(--brown);max-width:540px;margin:16px auto 0;line-height:1.85;letter-spacing:.2px;">Recovery shouldn't have a paywall. The most critical tools are free forever. Try Premium with a 14-day free trial — no credit card needed.</p>
+    <div class="pricing-grid">
+      <!-- Free -->
+      <div class="pricing-card pricing-free reveal">
+        <div class="pricing-name" style="color:var(--espresso)">Free</div>
+        <div class="pricing-price-row">
+          <span class="pricing-price-num" style="color:var(--espresso)">$0</span>
+          <span class="pricing-price-per" style="color:var(--muted)">/forever</span>
+        </div>
+        <div class="pricing-features">
+          <div class="pricing-feature"><span class="pricing-feature-check" style="color:var(--sage)">✓</span><span class="pricing-feature-text" style="color:var(--brown)">Sobriety & recovery tracking</span></div>
+          <div class="pricing-feature"><span class="pricing-feature-check" style="color:var(--sage)">✓</span><span class="pricing-feature-text" style="color:var(--brown)">Basic Sage AI companion</span></div>
+          <div class="pricing-feature"><span class="pricing-feature-check" style="color:var(--sage)">✓</span><span class="pricing-feature-text" style="color:var(--brown)">Daily mood & craving check-ins</span></div>
+          <div class="pricing-feature"><span class="pricing-feature-check" style="color:var(--sage)">✓</span><span class="pricing-feature-text" style="color:var(--brown)">Morning pledge & milestones</span></div>
+          <div class="pricing-feature"><span class="pricing-feature-check" style="color:var(--sage)">✓</span><span class="pricing-feature-text" style="color:var(--brown)">Crisis tools & SOS resources</span></div>
+          <div class="pricing-feature"><span class="pricing-feature-check" style="color:var(--sage)">✓</span><span class="pricing-feature-text" style="color:var(--brown)">10+ language support</span></div>
+        </div>
+        <a href="#" class="btn btn-outline btn-block">Get Started Free →</a>
+      </div>
+
+      <!-- Premium -->
+      <div class="pricing-card pricing-premium reveal reveal-d1">
+        <div class="pricing-ribbon">Most Popular</div>
+        <div class="pricing-name" style="color:#fff">Premium</div>
+        <div class="pricing-price-row">
+          <span class="pricing-price-num" style="color:#fff">$25</span>
+          <span class="pricing-price-per" style="color:rgba(255,255,255,.4)">/user/month</span>
+        </div>
+        <div class="pricing-features">
+          <div class="pricing-feature"><span class="pricing-feature-check" style="color:var(--gold)">✓</span><span class="pricing-feature-text" style="color:rgba(255,255,255,.8)">Everything in Free</span></div>
+          <div class="pricing-feature"><span class="pricing-feature-check" style="color:var(--gold)">✓</span><span class="pricing-feature-text" style="color:rgba(255,255,255,.8)">MAT medication tracker (Suboxone/Methadone/Naltrexone)</span></div>
+          <div class="pricing-feature"><span class="pricing-feature-check" style="color:var(--gold)">✓</span><span class="pricing-feature-text" style="color:rgba(255,255,255,.8)">COWS withdrawal monitoring</span></div>
+          <div class="pricing-feature"><span class="pricing-feature-check" style="color:var(--gold)">✓</span><span class="pricing-feature-text" style="color:rgba(255,255,255,.8)">Priority Sage AI (unlimited, OUD-trained)</span></div>
+          <div class="pricing-feature"><span class="pricing-feature-check" style="color:var(--gold)">✓</span><span class="pricing-feature-text" style="color:rgba(255,255,255,.8)">CBT workbook, pain mgmt & voice journal</span></div>
+          <div class="pricing-feature"><span class="pricing-feature-check" style="color:var(--gold)">✓</span><span class="pricing-feature-text" style="color:rgba(255,255,255,.8)">Family Reward Board & full gamification</span></div>
+          <div class="pricing-feature"><span class="pricing-feature-check" style="color:var(--gold)">✓</span><span class="pricing-feature-text" style="color:rgba(255,255,255,.8)">Narcan hub & care team connection</span></div>
+        </div>
+        <a href="#" class="btn btn-block" style="background:var(--rose);color:#fff;">Start Premium →</a>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="pricing-card pricing-enterprise reveal reveal-d2">
+        <div class="pricing-name" style="color:var(--rose-dark)">Enterprise</div>
+        <div class="pricing-price-row">
+          <span class="pricing-price-num" style="color:var(--rose-dark);font-size:28px;">Custom</span>
+        </div>
+        <div class="pricing-features">
+          <div class="pricing-feature"><span class="pricing-feature-check" style="color:var(--rose-dark)">✓</span><span class="pricing-feature-text" style="color:var(--brown)">Everything in Premium for all patients</span></div>
+          <div class="pricing-feature"><span class="pricing-feature-check" style="color:var(--rose-dark)">✓</span><span class="pricing-feature-text" style="color:var(--brown)">White-labeled OUD recovery companion app</span></div>
+          <div class="pricing-feature"><span class="pricing-feature-check" style="color:var(--rose-dark)">✓</span><span class="pricing-feature-text" style="color:var(--brown)">AI Predictive Analytics Dashboard</span></div>
+          <div class="pricing-feature"><span class="pricing-feature-check" style="color:var(--rose-dark)">✓</span><span class="pricing-feature-text" style="color:var(--brown)">EMR-ready data export (Kipu integration)</span></div>
+          <div class="pricing-feature"><span class="pricing-feature-check" style="color:var(--rose-dark)">✓</span><span class="pricing-feature-text" style="color:var(--brown)">AI relapse prediction & risk scoring</span></div>
+          <div class="pricing-feature"><span class="pricing-feature-check" style="color:var(--rose-dark)">✓</span><span class="pricing-feature-text" style="color:var(--brown)">MAT adherence & COWS analytics</span></div>
+          <div class="pricing-feature"><span class="pricing-feature-check" style="color:var(--rose-dark)">✓</span><span class="pricing-feature-text" style="color:var(--brown)">Pain-craving correlation & sentiment NLP</span></div>
+          <div class="pricing-feature"><span class="pricing-feature-check" style="color:var(--rose-dark)">✓</span><span class="pricing-feature-text" style="color:var(--brown)">Family gamification engagement analytics</span></div>
+          <div class="pricing-feature"><span class="pricing-feature-check" style="color:var(--rose-dark)">✓</span><span class="pricing-feature-text" style="color:var(--brown)">Dedicated onboarding & support</span></div>
+        </div>
+        <a href="#" class="btn btn-teal btn-block">Contact Sales →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section section" id="testimonials">
+  <div class="container text-center">
+    <span class="tag tag-gold">Stories</span>
+    <h2 class="section-title">Real people. <em>Real recovery.</em></h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars"><span class="testimonial-star">★</span><span class="testimonial-star">★</span><span class="testimonial-star">★</span><span class="testimonial-star">★</span><span class="testimonial-star">★</span></div>
+        <div class="testimonial-text">"Sage helped me through 3am cravings when the pain was triggering everything. My MAT streak is at 127 days and my mom's reward is keeping me going."</div>
+        <div style="display:flex;justify-content:space-between;align-items:center"><div><div class="testimonial-name">Maria T.</div><div class="testimonial-loc">Los Angeles, CA</div></div><span class="tag tag-sage" style="font-size:9px;padding:4px 10px;">127 days clean</span></div>
+      </div>
+      <div class="testimonial-card reveal reveal-d1">
+        <div class="testimonial-stars"><span class="testimonial-star">★</span><span class="testimonial-star">★</span><span class="testimonial-star">★</span><span class="testimonial-star">★</span><span class="testimonial-star">★</span></div>
+        <div class="testimonial-text">"The CBT modules helped me understand my triggers in a way therapy alone never did. Knowing my dad pledged a fishing trip at 90 days gives me something real to work toward."</div>
+        <div style="display:flex;justify-content:space-between;align-items:center"><div><div class="testimonial-name">David K.</div><div class="testimonial-loc">Chicago, IL</div></div><span class="tag tag-sage" style="font-size:9px;padding:4px 10px;">203 days clean</span></div>
+      </div>
+      <div class="testimonial-card reveal reveal-d2">
+        <div class="testimonial-stars"><span class="testimonial-star">★</span><span class="testimonial-star">★</span><span class="testimonial-star">★</span><span class="testimonial-star">★</span><span class="testimonial-star">★</span></div>
+        <div class="testimonial-text">"The XP system makes me check the app before I check Instagram. Family rewards keep me accountable — my sister's movie night reward unlocked last week."</div>
+        <div style="display:flex;justify-content:space-between;align-items:center"><div><div class="testimonial-name">James R.</div><div class="testimonial-loc">Austin, TX</div></div><span class="tag tag-sage" style="font-size:9px;padding:4px 10px;">89 days clean</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section section" id="faq">
+  <div class="container-sm text-center">
+    <span class="tag tag-rose">FAQ</span>
+    <h2 class="section-title" style="margin-bottom:40px;">Questions? <em>Answers.</em></h2>
+    <div style="text-align:left">
+      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span>What is VictoryAI?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><div class="faq-answer-inner">VictoryAI is an AI-powered OUD recovery companion and outcomes analytics platform. For patients, it offers MAT medication tracking, COWS withdrawal monitoring, craving & pain management, an AI companion (Sage), CBT modules, voice journaling, family-powered gamification, and Narcan tracking. For OUD treatment providers, it adds a real-time AI predictive analytics dashboard, clinical risk scoring, and EMR-ready data export for billing code eligibility. VictoryAI is a self-help and educational tool — not a medical device, clinical program, or healthcare provider.</div></div></div>
+
+      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span>Is VictoryAI a replacement for MAT or clinical treatment?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><div class="faq-answer-inner"><strong>No.</strong> VictoryAI is strictly a self-help companion designed to supplement — never substitute — the care provided by MAT prescribers, therapists, and licensed healthcare professionals. We strongly encourage all users to work with their care team.</div></div></div>
+
+      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span>Is my data safe? Is VictoryAI HIPAA compliant?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><div class="faq-answer-inner"><strong>Yes.</strong> VictoryAI is built on HIPAA-compliant infrastructure with end-to-end encryption for all data in transit and at rest. Enterprise customers also receive 42 CFR Part 2 compliance for substance use disorder confidentiality. Your recovery data belongs to you — we never sell, share, or monetize user health data.</div></div></div>
+
+      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span>What should I do if I'm in a mental health crisis?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><div class="faq-answer-inner"><strong>If you are in crisis, please immediately call 988 (Suicide & Crisis Lifeline), 911, or your local emergency services.</strong> VictoryAI includes crisis resources but is not equipped to handle medical emergencies. Do not rely solely on any app during a life-threatening situation.</div></div></div>
+
+      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span>What's included in each plan?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><div class="faq-answer-inner"><strong>Free</strong> includes recovery tracking, basic Sage AI, daily check-ins, crisis tools, milestones, and 10+ languages. <strong>Premium ($25/user/mo)</strong> adds MAT medication tracking, COWS withdrawal monitoring, full CBT workbook, unlimited Sage AI, voice journaling with AI analysis, pain management tools, family reward board, Narcan hub, and complete gamification. <strong>Enterprise</strong> includes everything in Premium for all patients plus the Provider Dashboard with AI predictive analytics, relapse risk scoring, EMR-ready data export, clinical assessments, and dedicated support. All billing is handled through your existing EMR/Kipu — VictoryAI captures and exports the data.</div></div></div>
+
+      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span>What happens if I relapse?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Relapse is a common part of the OUD recovery journey, and VictoryAI responds without judgment. Tap the Relapsed button at any time. Sage will respond with compassion, connect you to crisis resources and Narcan locators, and give you the option to confidentially report to your care team. A relapse does not erase your progress — your XP, achievements, and family rewards remain. Your provider receives an AI alert to support immediate intervention.</div></div></div>
+
+      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span>How does the Enterprise ROI work?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><div class="faq-answer-inner">VictoryAI captures OUD patient engagement data — MAT adherence, COWS scores, CBT session completion, daily check-ins, pain/craving logs — and maps it to billing code eligibility (RTM, H2019, G2213/G2214, CoCM, BHI). This data is exported to your EMR/Kipu for your billing team to submit claims. We estimate $490–$737 in identifiable billable data per OUD patient per month. For a 50-patient IOP program, that's approximately $24.5K/month in EMR-billable data. VictoryAI does not process billing — all claims flow through your existing EMR workflows. Estimates are illustrative and depend on payer contracts, patient engagement, and documentation compliance.</div></div></div>
+
+      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span>Is VictoryAI FDA-approved?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><div class="faq-answer-inner"><strong>No.</strong> VictoryAI is not an FDA-approved product, FDA-cleared medical device, or regulated health technology. It is a consumer wellness and self-help application. Nothing in the app — including AI-generated responses — should be construed as medical advice.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-final" id="download">
+  <div class="cta-glow"></div>
+  <div class="cta-inner reveal">
+    <h2 class="cta-title">OUD recovery starts<br><em>with one tap.</em></h2>
+    <p class="cta-body">Recovery from opioid use disorder is possible — and you don't have to do it alone. Track your MAT, earn family rewards, talk to Sage. Treatment providers: discover the clinical data you're missing.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="#" class="btn btn-lg" style="background:var(--rose);color:#fff;">Start Free →</a>
+    </div>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:14px;">
+      <a href="#" class="btn btn-lg" style="background:transparent;border:1px solid rgba(255,255,255,.2);color:#fff;">Enterprise? Schedule a Demo →</a>
+    </div>
+    <div class="cta-note">iOS & Android · HIPAA Compliant · 42 CFR Part 2 · 10+ Languages</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-brand-top">
+        <div class="footer-brand-name">VictoryAI</div>
+      </div>
+      <div class="footer-brand-desc">AI-powered OUD recovery companion for patients and providers. MAT tracking, family gamification, Sage AI, and real-time AI predictive analytics — not a replacement for professional medical care.</div>
+    </div>
+    <div><div class="footer-col-title">Product</div><a class="footer-link" href="#features">Features</a><a class="footer-link" href="#pricing">Pricing</a><a class="footer-link" href="#sage">Sage AI</a><a class="footer-link" href="#enterprise">Enterprise</a><a class="footer-link" href="#">Recovery Workbook</a></div>
+    <div><div class="footer-col-title">Support</div><a class="footer-link" href="#">Help Center</a><a class="footer-link" href="#">Crisis Resources</a><a class="footer-link" href="#">Contact Us</a><a class="footer-link" href="#">Privacy Policy</a><a class="footer-link" href="#">Terms of Service</a></div>
+    <div><div class="footer-col-title">Crisis Lines</div><a class="footer-link" href="tel:988">988 Suicide & Crisis Lifeline</a><a class="footer-link" href="tel:18006624357">SAMHSA: 1-800-662-4357</a></div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 VictoryAI. All rights reserved.</span>
+    <span class="footer-copy">www.getvictory.ai</span>
+  </div>
+</footer>
+
+<script>
+// Navbar scroll
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 50));
+
+// Reveal on scroll
+const revealEls = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+revealEls.forEach(el => revealObserver.observe(el));
+
+// FAQ toggle
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  document.querySelectorAll('.faq-item').forEach(i => { if (i !== item) i.classList.remove('active'); });
+  item.classList.toggle('active');
+}
+
+// Sage Demo Chat
+const sageResponses = [
+  "That's completely valid. Pain and cravings are deeply connected in OUD recovery — the pain activates the same reward pathways opioids used to numb. Let's work through some non-opioid strategies together.",
+  "I hear you. Your Suboxone is helping stabilize those receptors, and that's a big deal. Can you name one small thing that went well today, even if it seems tiny?",
+  "That takes real strength to share. You know, patients who use the pain management tools in the app report 28% lower cravings on high-pain days. Want to try the mindfulness for pain exercise?",
+  "You're doing better than you might realize. 47 days of MAT adherence is something to be proud of. Your mom's dinner reward is getting closer every day — 13 more days!",
+  "Thank you for being honest with me. Remember: a hard day isn't the same as a relapse. Your COWS score is low, your MAT is on track. Let's take this one moment at a time.",
+  "Let's try a quick breathing exercise. Breathe in for 4 counts… hold for 4… out for 6. This activates the same calming pathways that are healing right now. I'll guide you through it.",
+  "I can tell you're being really thoughtful about your recovery. That self-awareness is powerful. Would you like to log this in your voice journal for +25 XP, or would talking more help?",
+  "It sounds like today has been tough. But you reached out — and that's exactly what the Urge Support tools are for. Want to try the 5-4-3-2-1 grounding exercise, or think about your family rewards?"
+];
+let sageIdx = 0;
+const sageChatArea = document.getElementById('sage-chat-area');
+const sageDemoInput = document.getElementById('sage-demo-input');
+const sageDemoSend = document.getElementById('sage-demo-send');
+
+function addSageMsg(text, isUser) {
+  // Remove typing indicator if present
+  const typingEl = sageChatArea.querySelector('.sage-typing');
+  if (typingEl) typingEl.remove();
+  
+  const div = document.createElement('div');
+  div.className = 'sage-msg ' + (isUser ? 'sage-msg-user' : 'sage-msg-bot');
+  div.textContent = text;
+  sageChatArea.appendChild(div);
+  sageChatArea.scrollTop = sageChatArea.scrollHeight;
+}
+
+function showTyping() {
+  const div = document.createElement('div');
+  div.className = 'sage-typing';
+  div.innerHTML = '<div class="sage-typing-dot"></div><div class="sage-typing-dot"></div><div class="sage-typing-dot"></div>';
+  sageChatArea.appendChild(div);
+  sageChatArea.scrollTop = sageChatArea.scrollHeight;
+}
+
+function handleSageSend() {
+  const text = sageDemoInput.value.trim();
+  if (!text) return;
+  addSageMsg(text, true);
+  sageDemoInput.value = '';
+  
+  // Hide prompts after first message
+  document.getElementById('sage-prompts').style.display = 'none';
+  
+  showTyping();
+  setTimeout(() => {
+    addSageMsg(sageResponses[sageIdx % sageResponses.length], false);
+    sageIdx++;
+  }, 800 + Math.random() * 600);
+}
+
+function useSagePrompt(chip) {
+  sageDemoInput.value = chip.textContent;
+  handleSageSend();
+}
+
+if (sageDemoSend) sageDemoSend.addEventListener('click', handleSageSend);
+if (sageDemoInput) sageDemoInput.addEventListener('keydown', e => { if (e.key === 'Enter') handleSageSend(); });
+
+// ROI Calculator
+function calcROI() {
+  const iop = parseInt(document.getElementById('roi-iop').value) || 0;
+  const res = parseInt(document.getElementById('roi-res').value) || 0;
+  const mat = parseInt(document.getElementById('roi-detox').value) || 0;
+  const total = iop + res + mat;
+  
+  // OUD revenue estimates per patient per month by level of care
+  const iopRate = 490;   // IOP: RTM + DTx + BHI
+  const resRate = 737;   // Residential: full code stacking
+  const matRate = 350;   // MAT-only/outpatient: RTM + G2214 + BHI
+  
+  const monthlyRev = (iop * iopRate) + (res * resRate) + (mat * matRate);
+  const annualImpact = monthlyRev * 12;
+  const avgPerPt = total > 0 ? Math.round(monthlyRev / total) : 0;
+  
+  document.getElementById('roi-monthly').textContent = '$' + monthlyRev.toLocaleString();
+  document.getElementById('roi-annual').textContent = '$' + annualImpact.toLocaleString();
+  document.getElementById('roi-net').textContent = '$' + avgPerPt.toLocaleString();
+  document.getElementById('roi-multiple').textContent = total.toLocaleString();
+  document.getElementById('roi-rev-label').textContent = '~$' + monthlyRev.toLocaleString() + '/mo';
+  
+  // Update bar
+  document.getElementById('roi-rev-bar').style.width = '100%';
+}
+
+// Init calc
+calcROI();
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', e => {
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.pageYOffset - 70;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
